@@ -64,18 +64,15 @@
   }
   body::before{
     content:"";
-    position:fixed; inset:0; z-index:-1;
+    position:absolute; top:0; left:0; right:0; height:900px; z-index:-1;
     background:
       radial-gradient(ellipse 900px 500px at 12% -10%, rgba(59,130,246,0.16), transparent 60%),
       radial-gradient(ellipse 800px 500px at 100% 10%, rgba(167,139,250,0.14), transparent 60%),
-      radial-gradient(1.5px 1.5px at 20% 20%, rgba(255,255,255,0.5) 50%, transparent 51%),
-      radial-gradient(1.5px 1.5px at 65% 70%, rgba(255,255,255,0.4) 50%, transparent 51%),
-      radial-gradient(1px 1px at 85% 30%, rgba(255,255,255,0.45) 50%, transparent 51%),
-      radial-gradient(1px 1px at 40% 85%, rgba(255,255,255,0.35) 50%, transparent 51%),
-      radial-gradient(1.5px 1.5px at 92% 60%, rgba(255,255,255,0.4) 50%, transparent 51%),
+      radial-gradient(1.3px 1.3px at 20% 20%, rgba(255,255,255,0.45) 50%, transparent 51%),
+      radial-gradient(1.3px 1.3px at 65% 70%, rgba(255,255,255,0.35) 50%, transparent 51%),
       var(--bg);
-    background-repeat:no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat, no-repeat;
-    background-size:auto, auto, 220px 220px, 260px 260px, 300px 300px, 240px 240px, 280px 280px, auto;
+    background-repeat:no-repeat, no-repeat, repeat, repeat, no-repeat;
+    background-size:auto, auto, 260px 260px, 300px 300px, auto;
   }
   h1,h2,h3,.display,nav a,.btn,.stat-num,.logo{
     font-family:'Space Grotesk', sans-serif;
