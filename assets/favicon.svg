@@ -5,16 +5,25 @@
       <stop offset="55%" stop-color="#22D3EE"/>
       <stop offset="100%" stop-color="#A78BFA"/>
     </linearGradient>
+    <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75"/>
+      <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="lt" cx="32%" cy="26%" r="65%">
+      <stop offset="0%" stop-color="#BFE7FF" stop-opacity="0.5"/>
+      <stop offset="55%" stop-color="#BFE7FF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#BFE7FF" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="bc">
+      <text x="32" y="29.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, 'Helvetica Neue', sans-serif" font-weight="700" font-size="34">B</text>
+    </clipPath>
   </defs>
   <circle cx="32" cy="32" r="30" fill="#0B1220"/>
-  <circle cx="32" cy="32" r="23" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-  <g transform="rotate(-26 32 32)">
-    <ellipse cx="32" cy="32" rx="28" ry="11" fill="none" stroke="url(#g)" stroke-width="2.6" opacity="0.9"/>
-  </g>
-  <text x="32.5" y="34.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, 'Helvetica Neue', sans-serif" font-weight="700" font-size="50" fill="url(#g)" stroke="url(#g)" stroke-width="1.6" paint-order="stroke fill">B</text>
-  <g transform="rotate(-26 32 32)">
-    <circle cx="60" cy="32" r="4" fill="#22D3EE"/>
-    <circle cx="4" cy="32" r="2.8" fill="#F59E0B"/>
-    <circle cx="47" cy="23.5" r="2.1" fill="#A78BFA"/>
-  </g>
+  <circle cx="32" cy="32" r="29" fill="url(#lt)"/>
+  <path d="M 6 32.9 A 26 26 0 1 1 18.2 54.1" fill="none" stroke="url(#g)" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="6" cy="32.9" r="2.9" fill="#22D3EE"/>
+  <circle cx="18.2" cy="54.1" r="2.9" fill="#F59E0B"/>
+  <text x="35.6" y="33.4" text-anchor="middle" dominant-baseline="central" font-family="Arial, 'Helvetica Neue', sans-serif" font-weight="700" font-size="34" fill="#010203" opacity="0.8">B</text>
+  <text x="32" y="29.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, 'Helvetica Neue', sans-serif" font-weight="700" font-size="34" fill="url(#g)">B</text>
+  <rect x="0" y="0" width="64" height="32" fill="url(#hl)" clip-path="url(#bc)"/>
 </svg>
