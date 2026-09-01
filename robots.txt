@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://michaelcraft17.github.io/ai-for-human-impact/sitemap.xml

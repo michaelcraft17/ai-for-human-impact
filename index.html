@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI for Human Impact — A BASIS Schools Hackathon</title>
+<meta name="description" content="A national hackathon for BASIS high school students, Feb 6–12, 2027. Build AI tools that tackle real challenges in health, education, accessibility, and sustainability. $10,000 in prizes.">
+<link rel="canonical" href="https://michaelcraft17.github.io/ai-for-human-impact/">
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="alternate icon" href="assets/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI for Human Impact">
+<meta property="og:title" content="AI for Human Impact — A BASIS Schools Hackathon">
+<meta property="og:description" content="A national hackathon for BASIS high school students, Feb 6–12, 2027. Build AI tools that tackle real challenges in health, education, accessibility, and sustainability. $10,000 in prizes.">
+<meta property="og:url" content="https://michaelcraft17.github.io/ai-for-human-impact/">
+<meta property="og:image" content="https://michaelcraft17.github.io/ai-for-human-impact/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI for Human Impact — Build AI tools that solve real problems, for people by people. A BASIS Schools Hackathon, Feb 6–12, 2027.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI for Human Impact — A BASIS Schools Hackathon">
+<meta name="twitter:description" content="A national hackathon for BASIS high school students, Feb 6–12, 2027. Build AI tools that tackle real challenges in health, education, accessibility, and sustainability.">
+<meta name="twitter:image" content="https://michaelcraft17.github.io/ai-for-human-impact/assets/og-image.png">
+<meta name="twitter:image:alt" content="AI for Human Impact — Build AI tools that solve real problems, for people by people. A BASIS Schools Hackathon, Feb 6–12, 2027.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17191F;
+    --ink-soft:#4B4E57;
+    --paper:#F6F5F0;
+    --paper-dim:#EDEBE3;
+    --navy:#1F2A44;
+    --navy-soft:#2B3A5C;
+    --amber:#E2A73B;
+    --amber-dark:#8A5E19;
+    --rose:#B33F4E;
+    --teal:#2F6F8F;
+    --violet:#6B4E8E;
+    --green:#3F7D4E;
+    --line:#D9D6CB;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:1.05rem;
+    line-height:1.65;
+  }
+  h1,h2,h3,.display,nav a,.btn,.eyebrow-free-label,.stat-num,.logo{
+    font-family:'Archivo', sans-serif;
+  }
+  a{color:inherit;}
+  img,svg{max-width:100%;display:block;}
+
+  :focus-visible{
+    outline:3px solid var(--teal);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+  .band :focus-visible, footer :focus-visible{
+    outline-color:var(--amber);
+  }
+
+  .skip-link{
+    position:absolute; left:16px; top:-60px;
+    background:var(--navy); color:var(--paper);
+    padding:12px 18px; border-radius:3px;
+    font-family:'Archivo',sans-serif; font-weight:700; font-size:0.92rem;
+    text-decoration:none; z-index:100;
+    transition:top .15s ease;
+  }
+  .skip-link:focus{ top:12px; }
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,245,240,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    transition:box-shadow .2s ease;
+  }
+  header.scrolled{ box-shadow:0 4px 18px rgba(23,25,31,0.08); }
+  .navrow{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    font-weight:800; font-size:1.05rem; letter-spacing:-0.01em;
+    color:var(--ink); text-decoration:none;
+  }
+  .logo span{color:var(--amber-dark);}
+  .navlinks{display:flex; gap:28px; align-items:center;}
+  .nav-menu{display:flex; gap:28px; align-items:center;}
+  .navlinks a{
+    font-weight:600; font-size:0.92rem; text-decoration:none; color:var(--ink-soft);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .navlinks a:hover{color:var(--ink); border-bottom-color:var(--ink);}
+  .navlinks a[aria-current="true"]{color:var(--navy); border-bottom-color:var(--amber);}
+
+  .nav-toggle{
+    display:none;
+    background:none; border:1.5px solid var(--line); border-radius:3px;
+    width:40px; height:40px; padding:0; cursor:pointer;
+    align-items:center; justify-content:center;
+  }
+  .nav-toggle svg{ width:20px; height:20px; }
+  .nav-toggle .icon-close{ display:none; }
+  .nav-toggle[aria-expanded="true"] .icon-open{ display:none; }
+  .nav-toggle[aria-expanded="true"] .icon-close{ display:block; }
+
+  @media (max-width:760px){
+    .navlinks{ gap:14px; }
+    .nav-menu{
+      display:flex; flex-direction:column;
+      position:absolute; left:0; right:0; top:100%;
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden;
+      transition:max-height .25s ease;
+    }
+    .nav-menu.nav-open{ max-height:420px; overflow-y:auto; }
+    .nav-menu a.hide-mobile{
+      display:block; padding:16px 32px;
+      border-top:1px solid var(--line);
+    }
+    .nav-toggle{ display:flex; }
+  }
+
+  .btn{
+    display:inline-block;
+    font-weight:700; font-size:0.92rem;
+    padding:12px 22px;
+    border-radius:3px;
+    text-decoration:none;
+    border:1.5px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--amber); color:var(--ink);}
+  .btn-primary:hover{background:#cf9530;}
+  .btn-outline{border-color:var(--navy); color:var(--navy); background:transparent;}
+  .btn-outline:hover{background:var(--navy); color:var(--paper);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 96px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.1rem);
+    font-weight:900;
+    line-height:1.04;
+    letter-spacing:-0.015em;
+    margin:0 0 22px;
+    opacity:0; transform:translateY(14px);
+    animation:riseIn .7s ease forwards;
+  }
+  .hero h1 .line2{color:var(--navy);}
+  .hero p.lede{
+    font-size:1.2rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 0 32px;
+    opacity:0; transform:translateY(14px);
+    animation:riseIn .7s ease .12s forwards;
+  }
+  .hero .cta-row{
+    display:flex; gap:14px; flex-wrap:wrap; margin-bottom:22px;
+    opacity:0; transform:translateY(14px);
+    animation:riseIn .7s ease .24s forwards;
+  }
+  .hero .meta{
+    font-family:'Archivo',sans-serif;
+    font-size:0.85rem; font-weight:600; color:var(--ink-soft);
+    opacity:0;
+    animation:riseIn .7s ease .34s forwards;
+  }
+  @keyframes riseIn{ to{ opacity:1; transform:translateY(0);} }
+
+  .hero-art{ position:relative; height:340px; }
+  .hero-art svg{ width:100%; height:100%; }
+  .hero-art .shape{ opacity:0; transform:scale(.85); transform-origin:center; animation:popIn .8s cubic-bezier(.2,.8,.2,1) forwards; }
+  .hero-art .s1{animation-delay:.05s;}
+  .hero-art .s2{animation-delay:.18s;}
+  .hero-art .s3{animation-delay:.31s;}
+  .hero-art .s4{animation-delay:.44s;}
+  @keyframes popIn{ to{opacity:.88; transform:scale(1);} }
+  @media (prefers-reduced-motion:reduce){
+    .hero h1,.hero p.lede,.hero .cta-row,.hero .meta,.hero-art .shape{ animation:none; opacity:1; transform:none; }
+  }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:84px 0; }
+  .section-head{ max-width:640px; margin-bottom:48px; }
+  .section-head h2{ font-size:clamp(1.7rem,3.4vw,2.4rem); font-weight:800; margin:0 0 14px; letter-spacing:-0.01em; }
+  .section-head p{ color:var(--ink-soft); margin:0; font-size:1.08rem; }
+
+  /* ---------- ABOUT ---------- */
+  .about-quote{
+    font-style:italic;
+    font-size:1.35rem;
+    color:var(--navy);
+    border-left:3px solid var(--amber);
+    padding-left:20px;
+    margin:36px 0 44px;
+    max-width:52ch;
+  }
+  .about-cols{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+    border-top:1px solid var(--line);
+    padding-top:32px;
+  }
+  @media (max-width:760px){ .about-cols{grid-template-columns:1fr;} }
+  .about-cols h3{ font-size:1.05rem; font-weight:700; margin:0 0 8px; }
+  .about-cols p{ margin:0; color:var(--ink-soft); font-size:0.98rem; }
+
+  /* ---------- TRACKS ---------- */
+  .tracks-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:760px){ .tracks-grid{grid-template-columns:1fr;} }
+  .track{
+    background:var(--paper);
+    padding:36px 34px;
+    border-left:6px solid var(--rose);
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .track:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(23,25,31,0.08);
+    background:#fff;
+  }
+  .track.education{border-left-color:var(--teal);}
+  .track.access{border-left-color:var(--violet);}
+  .track.sustain{border-left-color:var(--green);}
+  .track h3{ font-size:1.25rem; font-weight:800; margin:0 0 4px; }
+  .track .zh{ font-family:'Source Serif 4',serif; font-style:italic; color:var(--ink-soft); font-size:0.95rem; margin:0 0 14px; }
+  .track p{ margin:0 0 14px; color:var(--ink-soft); }
+  .track .examples{ font-size:0.92rem; color:var(--ink-soft); }
+  .track .examples b{ color:var(--ink); font-weight:700; font-family:'Archivo',sans-serif; font-size:0.82rem; }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{
+    display:flex; justify-content:space-between; gap:8px;
+    position:relative; padding-top:10px;
+  }
+  .timeline::before{
+    content:""; position:absolute; top:6px; left:0; right:0; height:2px; background:var(--line);
+  }
+  .tl-item{ flex:1; text-align:left; position:relative; padding-top:24px; }
+  .tl-item::before{
+    content:""; position:absolute; top:0; left:0; width:12px; height:12px; border-radius:50%;
+    background:var(--amber); border:2px solid var(--paper); outline:2px solid var(--amber);
+  }
+  .tl-item .tl-date{ font-family:'Archivo',sans-serif; font-weight:800; font-size:0.92rem; margin-bottom:6px; }
+  .tl-item .tl-label{ font-size:0.9rem; color:var(--ink-soft); }
+  .tl-item.tl-next::before{ outline-width:4px; box-shadow:0 0 0 4px rgba(226,167,59,0.25); }
+  .tl-item.tl-next .tl-date{ color:var(--amber-dark); }
+  .tl-badge{
+    display:inline-block; font-family:'Archivo',sans-serif; font-weight:700; font-size:0.68rem;
+    letter-spacing:0.04em; text-transform:uppercase;
+    background:var(--amber); color:var(--ink);
+    padding:2px 7px; border-radius:2px; margin-left:8px; vertical-align:middle;
+  }
+  @media (max-width:820px){
+    .timeline{ flex-direction:column; gap:26px; }
+    .timeline::before{ top:0; bottom:0; left:5px; right:auto; width:2px; height:auto; }
+    .tl-item{ padding-top:0; padding-left:28px; }
+    .tl-item::before{ top:4px; left:0; }
+  }
+
+  /* ---------- ELIGIBILITY BAND ---------- */
+  .band{ background:var(--navy); color:var(--paper); }
+  .band .section-head p{ color:#C9CFDD; }
+  .band .section-head h2{ color:var(--paper); }
+  .facts{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px 48px; }
+  @media (max-width:700px){ .facts{grid-template-columns:1fr;} }
+  .facts li{ margin-bottom:6px; }
+  .facts ul{ margin:0; padding-left:20px; color:#DCE0EA; }
+
+  /* ---------- PRIZES ---------- */
+  .prize-grid{ display:grid; grid-template-columns:0.9fr 1.4fr; gap:48px; align-items:start; }
+  @media (max-width:800px){ .prize-grid{grid-template-columns:1fr; gap:24px;} }
+  .stat-num{ font-size:clamp(3rem,7vw,4.6rem); font-weight:900; color:var(--amber-dark); line-height:1; letter-spacing:-0.02em; }
+  .stat-label{ font-family:'Archivo',sans-serif; font-weight:700; color:var(--ink-soft); margin-top:8px; }
+  .prize-list{ list-style:none; margin:0; padding:0; }
+  .prize-list li{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:16px 4px; border-bottom:1px solid var(--line);
+    border-radius:3px;
+    transition:background .15s ease, padding .15s ease;
+  }
+  .prize-list li:hover{ background:var(--paper-dim); padding-left:12px; padding-right:12px; }
+  .prize-list li:first-child{ padding-top:0; }
+  .prize-list .p-name{ font-weight:700; }
+  .prize-list .p-desc{ color:var(--ink-soft); font-size:0.92rem; display:block; margin-top:2px; }
+  .prize-list .p-amt{ font-family:'Archivo',sans-serif; font-weight:800; white-space:nowrap; }
+
+  /* ---------- FAQ ---------- */
+  details{ border-bottom:1px solid var(--line); padding:18px 0; }
+  summary{
+    cursor:pointer; font-weight:700; font-family:'Archivo',sans-serif; font-size:1.02rem;
+    list-style:none; display:flex; justify-content:space-between; align-items:center;
+    gap:16px;
+    transition:color .15s ease;
+  }
+  summary:hover{ color:var(--navy); }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:"+"; font-size:1.4rem; color:var(--amber-dark); font-weight:400; }
+  details[open] summary::after{ content:"–"; }
+  details p{ margin:12px 0 0; color:var(--ink-soft); max-width:65ch; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--ink); color:#C9C7BE; padding:56px 0 32px; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; margin-bottom:40px; }
+  @media (max-width:700px){ .foot-grid{grid-template-columns:1fr;} }
+  footer h4{ font-family:'Archivo',sans-serif; color:var(--paper); font-size:0.95rem; margin:0 0 14px; }
+  footer p, footer a{ font-size:0.92rem; color:#B3B1A8; text-decoration:none; }
+  footer ul{ list-style:none; padding:0; margin:0; }
+  footer li{ margin-bottom:8px; }
+  footer a:hover{ color:var(--amber); }
+  .foot-bottom{ border-top:1px solid #35342E; padding-top:22px; font-size:0.82rem; color:#8A887F; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .placeholder-tag{ background:#35342E; color:#E2A73B; font-size:0.72rem; font-family:'Archivo',sans-serif; padding:2px 8px; border-radius:2px; margin-left:8px; }
+</style>
+</head>
+<body>
+
+<a href="#top" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="navrow">
+    <a href="#top" class="logo">AI for <span>Human Impact</span></a>
+    <nav class="navlinks" aria-label="Primary">
+      <div class="nav-menu" id="nav-menu">
+        <a href="#tracks" class="hide-mobile">Tracks</a>
+        <a href="#dates" class="hide-mobile">Dates</a>
+        <a href="#prizes" class="hide-mobile">Prizes</a>
+        <a href="#faq" class="hide-mobile">FAQ</a>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+      </button>
+      <a href="#" class="btn btn-primary" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">Register</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Build AI tools that solve real problems.<br><span class="line2">For people, by people.</span></h1>
+        <p class="lede">A national hackathon for BASIS high school students, using AI to tackle real challenges in health, education, accessibility, and sustainability.</p>
+        <div class="cta-row">
+          <a href="#" class="btn btn-primary" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">Register on Devpost</a>
+          <a href="#rules" class="btn btn-outline">Read the rules</a>
+        </div>
+        <p class="meta">Feb 6–12, 2027 · Fully online · Open to all BASIS high schools nationwide</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 340">
+          <circle class="shape s1" cx="150" cy="130" r="95" fill="#B33F4E" style="mix-blend-mode:multiply"/>
+          <circle class="shape s2" cx="250" cy="120" r="95" fill="#2F6F8F" style="mix-blend-mode:multiply"/>
+          <circle class="shape s3" cx="160" cy="220" r="95" fill="#6B4E8E" style="mix-blend-mode:multiply"/>
+          <circle class="shape s4" cx="255" cy="220" r="95" fill="#3F7D4E" style="mix-blend-mode:multiply"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="about-h">About the challenge</h2>
+        <p>AI is changing how we learn, work, and connect — but many of the challenges that matter most to our communities still lack accessible, human-centered solutions. This hackathon challenges BASIS students to start with a real problem, not a technology looking for a use case.</p>
+      </div>
+      <p class="about-quote reveal">"What problem matters to the people I'm building for, and how can AI help solve it?"</p>
+      <div class="about-cols reveal">
+        <div>
+          <h3>Impact-first</h3>
+          <p>Start with a real problem, not a technology looking for a use case.</p>
+        </div>
+        <div>
+          <h3>Designed with people</h3>
+          <p>Projects should involve the community they aim to serve — in research, design, or testing.</p>
+        </div>
+        <div>
+          <h3>AI with a purpose</h3>
+          <p>AI should play a meaningful role. A chatbot wrapper alone won't cut it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tracks" aria-labelledby="tracks-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="tracks-h">Four tracks</h2>
+        <p>Pick the track closest to your team's passion — or propose your own idea in the Open Category.</p>
+      </div>
+      <div class="tracks-grid">
+        <div class="track health reveal">
+          <h3>AI + Health</h3>
+          <p class="zh">健康</p>
+          <p>Tools that help people understand, manage, or access healthcare and improve their wellbeing.</p>
+          <p class="examples"><b>EXAMPLES </b>caregiver organization tools, clearer medical information, healthy-routine assistants</p>
+        </div>
+        <div class="track education reveal">
+          <h3>AI + Education</h3>
+          <p class="zh">教育</p>
+          <p>Tools that help students learn, teachers teach, and education become more personalized and accessible.</p>
+          <p class="examples"><b>EXAMPLES </b>adaptive tutoring, interactive concept visualizations, early struggle detection for teachers</p>
+        </div>
+        <div class="track access reveal">
+          <h3>AI + Accessibility &amp; Inclusion</h3>
+          <p class="zh">包容与无障碍</p>
+          <p>Tools that empower people with disabilities, neurodivergent individuals, and communities facing barriers.</p>
+          <p class="examples"><b>EXAMPLES </b>communication support, inclusive navigation, tools for neurodivergent students</p>
+        </div>
+        <div class="track sustain reveal">
+          <h3>AI + Sustainability &amp; Community</h3>
+          <p class="zh">环境与社会</p>
+          <p>Solutions for healthier communities, environmental protection, and social challenges.</p>
+          <p class="examples"><b>EXAMPLES </b>food-waste reduction, disaster-response coordination, community resource allocation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dates" aria-labelledby="dates-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="dates-h">Key dates</h2>
+        <p>All times Pacific.</p>
+      </div>
+      <div class="timeline reveal">
+        <div class="tl-item" data-tl-date="2026-11-02"><div class="tl-date">Nov 2, 2026</div><div class="tl-label">Registration opens</div></div>
+        <div class="tl-item" data-tl-date="2027-01-16"><div class="tl-date">Jan 16, 2027</div><div class="tl-label">Registration closes</div></div>
+        <div class="tl-item" data-tl-date="2027-02-06"><div class="tl-date">Feb 6–12, 2027</div><div class="tl-label">Build week</div></div>
+        <div class="tl-item" data-tl-date="2027-02-13"><div class="tl-date">Feb 13–19, 2027</div><div class="tl-label">Judging period</div></div>
+        <div class="tl-item" data-tl-date="2027-02-20"><div class="tl-date">Feb 20, 2027</div><div class="tl-label">Winners announced</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="rules" aria-labelledby="rules-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="rules-h">Eligibility &amp; requirements</h2>
+        <p>The short version — full rules are posted on Devpost.</p>
+      </div>
+      <div class="facts reveal">
+        <ul>
+          <li>Open to high school students (grades 9–12) at any BASIS school nationwide</li>
+          <li>Compete solo or in teams of up to 5</li>
+          <li>Minors need parent/guardian permission to participate</li>
+        </ul>
+        <ul>
+          <li>AI must be used meaningfully — not just a chatbot wrapper</li>
+          <li>Every project must involve at least one real user in design or testing</li>
+          <li>Submit a demo video, project write-up, and public GitHub repo</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="prizes" aria-labelledby="prizes-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="prizes-h">Prizes</h2>
+        <p>$10,000 total, distributed across overall winners, all four tracks, and special awards.</p>
+      </div>
+      <div class="prize-grid reveal">
+        <div>
+          <div class="stat-num">$10,000</div>
+          <div class="stat-label">Total prize pool</div>
+        </div>
+        <ul class="prize-list">
+          <li><span><span class="p-name">Grand Prize</span><span class="p-desc">Best overall project across all tracks</span></span><span class="p-amt">$3,000</span></li>
+          <li><span><span class="p-name">2nd Place Overall</span></span><span class="p-amt">$1,500</span></li>
+          <li><span><span class="p-name">3rd Place Overall</span></span><span class="p-amt">$1,000</span></li>
+          <li><span><span class="p-name">Track Winners</span><span class="p-desc">$750 each, one per track (×4)</span></span><span class="p-amt">$3,000</span></li>
+          <li><span><span class="p-name">People's Choice</span><span class="p-desc">Voted by participants &amp; attendees</span></span><span class="p-amt">$500</span></li>
+          <li><span><span class="p-name">Most Innovative Use of AI</span></span><span class="p-amt">$500</span></li>
+          <li><span><span class="p-name">Best Presentation</span></span><span class="p-amt">$500</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="faq-h">Frequently asked</h2>
+      </div>
+      <details open>
+        <summary>Do I need advanced AI experience?</summary>
+        <p>No. This is beginner-friendly — workshops, mentors, and community support will help you turn an idea into a working prototype, no matter your starting point.</p>
+      </details>
+      <details>
+        <summary>Can I compete solo?</summary>
+        <p>Yes. You can enter alone or in a team of up to 5 people. Team members don't need to attend the same BASIS campus.</p>
+      </details>
+      <details>
+        <summary>What if my idea doesn't fit one of the four tracks?</summary>
+        <p>Enter the Open Category. Just clearly explain the problem it addresses, who benefits, and why AI is an appropriate part of the solution.</p>
+      </details>
+      <details>
+        <summary>Is this open to every BASIS campus?</summary>
+        <p>Yes — this hackathon is open to high school students at any BASIS school nationwide.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>AI for Human Impact</h4>
+        <p>A hackathon for BASIS high school students building AI tools with real social impact — for people, by people.</p>
+      </div>
+      <div>
+        <h4>Event</h4>
+        <ul>
+          <li><a href="#tracks">Tracks</a></li>
+          <li><a href="#dates">Dates</a></li>
+          <li><a href="#rules">Rules &amp; eligibility</a></li>
+          <li><a href="#prizes">Prizes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="#" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">Register on Devpost</a><span class="placeholder-tag">add link</span></li>
+          <li><a href="#" data-todo-link="discord" title="Discord invite link coming soon" aria-disabled="true">Join our Discord</a><span class="placeholder-tag">add link</span></li>
+          <li><a href="#" data-todo-link="sponsor-email" title="Sponsor contact email coming soon" aria-disabled="true">Sponsor this event</a><span class="placeholder-tag">add email</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 AI for Human Impact. Organized by BASIS students, for BASIS students.</span>
+      <span>Sponsors: to be announced</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // --- Mobile nav toggle ---
+  var toggle = document.getElementById('nav-toggle');
+  var menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function(){
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+      menu.classList.toggle('nav-open', !open);
+    });
+    menu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        menu.classList.remove('nav-open');
+      });
+    });
+  }
+
+  // --- Header shadow once page is scrolled ---
+  var header = document.querySelector('header');
+  if (header) {
+    var onScroll = function(){
+      header.classList.toggle('scrolled', window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // --- Scrollspy: mark the nav link for the section in view ---
+  var sections = ['tracks','dates','prizes','faq'].map(function(id){
+    return document.getElementById(id);
+  }).filter(Boolean);
+  var navLinksById = {};
+  document.querySelectorAll('.nav-menu a[href^="#"]').forEach(function(link){
+    navLinksById[link.getAttribute('href').slice(1)] = link;
+  });
+  if (sections.length && 'IntersectionObserver' in window) {
+    var spyObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = navLinksById[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          Object.keys(navLinksById).forEach(function(id){
+            navLinksById[id].removeAttribute('aria-current');
+          });
+          link.setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function(s){ spyObserver.observe(s); });
+  }
+
+  // --- Scroll reveal ---
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function(el){ revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // --- FAQ: only one panel open at a time ---
+  var faqItems = document.querySelectorAll('#faq details');
+  faqItems.forEach(function(item){
+    item.addEventListener('toggle', function(){
+      if (item.open) {
+        faqItems.forEach(function(other){
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+
+  // --- Timeline: flag the next upcoming milestone ---
+  var tlItems = document.querySelectorAll('.tl-item[data-tl-date]');
+  if (tlItems.length) {
+    var today = new Date();
+    today.setHours(0,0,0,0);
+    var next = null;
+    tlItems.forEach(function(item){
+      var d = new Date(item.getAttribute('data-tl-date') + 'T00:00:00');
+      if (d >= today && (!next || d < next.date)) {
+        next = { el: item, date: d };
+      }
+    });
+    if (next) {
+      next.el.classList.add('tl-next');
+      var label = next.el.querySelector('.tl-label');
+      if (label) {
+        var badge = document.createElement('span');
+        badge.className = 'tl-badge';
+        badge.textContent = 'Next up';
+        label.appendChild(badge);
+      }
+    }
+  }
+
+  // --- Placeholder links: not live yet, don't navigate ---
+  document.querySelectorAll('a[data-todo-link]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
