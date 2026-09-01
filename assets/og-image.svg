@@ -4,23 +4,60 @@
       .title{ font-family:Arial, 'Helvetica Neue', sans-serif; font-weight:800; }
       .sub{ font-family:Arial, 'Helvetica Neue', sans-serif; font-weight:600; }
     </style>
+    <linearGradient id="bgGlow1" cx="50%" cy="50%" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bgGlow2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="55%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="55%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="#F6F5F0"/>
-  <rect width="1200" height="630" fill="none" stroke="#D9D6CB" stroke-width="2"/>
 
-  <g opacity="0.85" transform="translate(760,60)">
-    <circle cx="150" cy="130" r="120" fill="#B33F4E" style="mix-blend-mode:multiply"/>
-    <circle cx="280" cy="115" r="120" fill="#2F6F8F" style="mix-blend-mode:multiply"/>
-    <circle cx="165" cy="255" r="120" fill="#6B4E8E" style="mix-blend-mode:multiply"/>
-    <circle cx="290" cy="255" r="120" fill="#3F7D4E" style="mix-blend-mode:multiply"/>
+  <rect width="1200" height="630" fill="#0B1220"/>
+  <circle cx="900" cy="120" r="420" fill="url(#bgGlow1)"/>
+  <circle cx="1050" cy="500" r="360" fill="url(#bgGlow2)"/>
+
+  <g fill="#FFFFFF">
+    <circle cx="120" cy="90" r="1.6" opacity="0.6"/>
+    <circle cx="260" cy="180" r="1.2" opacity="0.5"/>
+    <circle cx="60" cy="320" r="1.6" opacity="0.55"/>
+    <circle cx="180" cy="470" r="1.2" opacity="0.4"/>
+    <circle cx="340" cy="560" r="1.6" opacity="0.5"/>
+    <circle cx="420" cy="80" r="1.2" opacity="0.45"/>
+    <circle cx="500" cy="440" r="1.4" opacity="0.4"/>
+    <circle cx="640" cy="560" r="1.2" opacity="0.4"/>
   </g>
 
-  <text x="80" y="230" class="title" font-size="66" fill="#17191F">Build AI tools that</text>
-  <text x="80" y="305" class="title" font-size="66" fill="#1F2A44">solve real problems.</text>
+  <rect x="80" y="454" width="7" height="60" fill="#F59E0B"/>
+  <text x="106" y="480" class="sub" font-size="26" fill="#F1F5F9">AI for Human Impact</text>
+  <text x="106" y="514" class="sub" font-size="24" fill="#9CA9C0">Feb 6–12, 2027 · Fully online · A BASIS Schools Hackathon</text>
 
-  <text x="80" y="380" class="sub" font-size="30" fill="#4B4E57">For people, by people.</text>
+  <text x="80" y="230" class="title" font-size="64" fill="#F1F5F9">Build AI tools that</text>
+  <text x="80" y="302" class="title" font-size="64" fill="url(#textGrad)">solve real problems.</text>
+  <text x="80" y="356" class="sub" font-size="30" fill="#9CA9C0">For people, by people.</text>
 
-  <rect x="80" y="450" width="8" height="60" fill="#E2A73B"/>
-  <text x="106" y="478" class="sub" font-size="26" fill="#17191F">AI for Human Impact — A BASIS Schools Hackathon</text>
-  <text x="106" y="512" class="sub" font-size="24" fill="#4B4E57">Feb 6–12, 2027 · Fully online · Open to all BASIS high schools</text>
+  <g transform="translate(870,60)">
+    <circle cx="150" cy="150" r="146" fill="#0B1220" stroke="rgba(255,255,255,0.08)"/>
+    <circle cx="150" cy="150" r="92" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.6"/>
+    <ellipse cx="150" cy="150" rx="92" ry="34" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+    <ellipse cx="150" cy="150" rx="92" ry="63" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+    <ellipse cx="150" cy="150" rx="34" ry="92" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+    <g transform="rotate(-26 150 150)">
+      <ellipse cx="150" cy="150" rx="130" ry="50" fill="none" stroke="url(#markGrad)" stroke-width="5"/>
+      <circle cx="280" cy="150" r="12" fill="#22D3EE"/>
+      <circle cx="20" cy="150" r="8" fill="#F59E0B"/>
+      <circle cx="215" cy="115" r="6" fill="#A78BFA"/>
+    </g>
+  </g>
 </svg>
