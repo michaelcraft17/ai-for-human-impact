@@ -49,10 +49,8 @@
 
   <g transform="translate(870,60)">
     <circle cx="150" cy="150" r="146" fill="#0B1220" stroke="rgba(255,255,255,0.08)"/>
-    <circle cx="150" cy="150" r="92" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.6"/>
-    <ellipse cx="150" cy="150" rx="92" ry="34" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-    <ellipse cx="150" cy="150" rx="92" ry="63" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-    <ellipse cx="150" cy="150" rx="34" ry="92" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+    <circle cx="150" cy="150" r="92" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.2"/>
+    <text x="150" y="157" text-anchor="middle" dominant-baseline="central" font-family="Arial, 'Helvetica Neue', sans-serif" font-weight="800" font-size="126" fill="url(#markGrad)">B</text>
     <g transform="rotate(-26 150 150)">
       <ellipse cx="150" cy="150" rx="130" ry="50" fill="none" stroke="url(#markGrad)" stroke-width="5"/>
       <circle cx="280" cy="150" r="12" fill="#22D3EE"/>

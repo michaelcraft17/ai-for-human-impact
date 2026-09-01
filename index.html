@@ -268,6 +268,23 @@
   .section-head h2{ font-size:clamp(1.7rem,3.4vw,2.4rem); font-weight:700; margin:0 0 14px; letter-spacing:-0.01em; }
   .section-head p{ color:var(--ink-soft); margin:0; font-size:1.08rem; }
 
+  /* ---------- MISSION ---------- */
+  .mission-band{
+    padding:52px 0;
+    background:var(--bg-soft);
+    border-top:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .mission-eyebrow{
+    font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.12em;
+    font-size:0.78rem; font-weight:700; color:var(--orange); margin:0 0 14px;
+  }
+  .mission-statement{
+    font-size:clamp(1.3rem,2.6vw,1.85rem); font-weight:500; line-height:1.5;
+    margin:0; max-width:56ch; letter-spacing:-0.005em; color:var(--ink);
+  }
+  .mission-statement .grad-text{ font-weight:700; }
+
   /* ---------- ABOUT ---------- */
   .about-quote{
     font-style:italic;
@@ -428,10 +445,8 @@
     <symbol id="logoMark" viewBox="0 0 64 64">
       <circle cx="32" cy="32" r="30" fill="#0B1220"/>
       <circle cx="32" cy="32" r="30" fill="none" stroke="var(--line-soft,rgba(255,255,255,0.08))"/>
-      <circle cx="32" cy="32" r="19" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.3"/>
-      <ellipse cx="32" cy="32" rx="19" ry="7" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
-      <ellipse cx="32" cy="32" rx="19" ry="13" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
-      <ellipse cx="32" cy="32" rx="7" ry="19" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+      <circle cx="32" cy="32" r="19" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+      <text x="32" y="33.5" text-anchor="middle" dominant-baseline="central" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="27" fill="url(#markGrad)">B</text>
       <g transform="rotate(-26 32 32)">
         <ellipse cx="32" cy="32" rx="27" ry="10.5" fill="none" stroke="url(#markGrad)" stroke-width="2.4"/>
         <circle cx="59" cy="32" r="3.4" fill="#22D3EE"/>
@@ -490,6 +505,13 @@
           <use href="#logoMark" class="logo-spin" x="55" y="55" width="210" height="210"></use>
         </svg>
       </div>
+    </div>
+  </section>
+
+  <section id="mission" class="mission-band" aria-labelledby="mission-h">
+    <div class="wrap">
+      <p class="mission-eyebrow reveal">Our mission</p>
+      <h2 id="mission-h" class="mission-statement reveal">We put <span class="grad-text">AI in the hands of students who start with people, not products</span> — building tools that meet real needs in health, education, accessibility, and sustainability, shaped and tested with the communities they're meant to serve.</h2>
     </div>
   </section>
 
