@@ -88,8 +88,11 @@
     outline-offset:3px;
     border-radius:2px;
   }
-  .band :focus-visible, footer :focus-visible{
+  .band :focus-visible{
     outline-color:var(--orange);
+  }
+  footer :focus-visible{
+    outline-color:var(--orange-bright);
   }
 
   .skip-link{
@@ -416,7 +419,17 @@
   details p{ margin:12px 0 0; color:var(--ink-soft); max-width:65ch; }
 
   /* ---------- FOOTER ---------- */
-  footer{ background:var(--bg-soft); color:var(--ink-soft); padding:0 0 32px; border-top:1px solid var(--line-soft); position:relative; }
+  footer{
+    position:relative;
+    color:#B8C4D9;
+    padding:0 0 32px;
+    background:
+      linear-gradient(180deg, rgba(6,10,20,0.80), rgba(6,10,20,0.94)),
+      url('assets/footer-globe.jpg');
+    background-size:cover;
+    background-position:center 78%;
+    background-repeat:no-repeat;
+  }
   footer::before{
     content:""; display:block; height:2px; width:100%;
     background:var(--grad);
@@ -426,13 +439,13 @@
   @media (max-width:700px){ .foot-grid{grid-template-columns:1fr;} }
   .foot-brand{ display:flex; align-items:center; gap:10px; margin:0 0 14px; }
   .foot-brand .logo-mark{ width:26px; height:26px; }
-  footer h3{ font-family:'Space Grotesk',sans-serif; color:var(--ink); font-size:0.95rem; margin:0 0 14px; }
-  footer p, footer a{ font-size:0.92rem; color:var(--ink-soft); text-decoration:none; }
+  footer h3{ font-family:'Space Grotesk',sans-serif; color:#F1F5F9; font-size:0.95rem; margin:0 0 14px; }
+  footer p, footer a{ font-size:0.92rem; color:#B8C4D9; text-decoration:none; }
   footer ul{ list-style:none; padding:0; margin:0; }
   footer li{ margin-bottom:8px; }
-  footer a:hover{ color:var(--cyan); }
-  .foot-bottom{ border-top:1px solid var(--line-soft); padding-top:22px; font-size:0.82rem; color:var(--ink-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-  .placeholder-tag{ background:var(--bg-raised-2); color:var(--orange); font-size:0.72rem; font-family:'Space Grotesk',sans-serif; padding:2px 8px; border-radius:4px; margin-left:8px; }
+  footer a:hover{ color:#22D3EE; }
+  .foot-bottom{ border-top:1px solid rgba(255,255,255,0.14); padding-top:22px; font-size:0.82rem; color:#8C9BB5; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .placeholder-tag{ background:rgba(255,255,255,0.10); color:#F59E0B; font-size:0.72rem; font-family:'Space Grotesk',sans-serif; padding:2px 8px; border-radius:4px; margin-left:8px; }
 </style>
 </head>
 <body>
