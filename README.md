@@ -2,6 +2,8 @@
 
 Landing page for **AI for Human Impact**, a BASIS Schools hackathon (Feb 6–12, 2027). A single static HTML file — vanilla HTML/CSS/JS, no build step, no dependencies.
 
+**Live site:** https://michaelcraft17.github.io/ai-for-human-impact/
+
 ## Structure
 
 ```
