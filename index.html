@@ -807,6 +807,7 @@
   }
   .a11y-tooltip[hidden]{ display:none; }
 </style>
+<link rel="stylesheet" href="assets/layout.css">
 </head>
 <body>
 
@@ -855,6 +856,7 @@
             <a href="#tracks" class="btn btn-outline">Explore Tracks</a>
           </div>
           <p class="meta">Feb 6–12, 2027 · Fully online · Open to BASIS high school students</p>
+          <a class="hero-scroll" href="#mission">Discover the challenge <span aria-hidden="true">↓</span></a>
         </div>
         <div class="hero-sponsors" role="group" aria-label="BASIS and Stanford NNEA">
           <a class="hs-logo hs-logo--basis" href="https://basisindependent.com/schools/ca/silicon-valley/" target="_blank" rel="noopener">
@@ -862,7 +864,7 @@
           </a>
           <span class="hs-x" aria-hidden="true">×</span>
           <a class="hs-logo hs-logo--nnea" href="https://www.stanfordnnea.com/" target="_blank" rel="noopener">
-            <img src="assets/partner-stanford-nnea-dark.png" alt="Stanford NNEA" width="253" height="291">
+            <img src="assets/partner-stanford-nnea-dark-bold.png" alt="Stanford NNEA" width="1169" height="1345">
           </a>
         </div>
       </div>
@@ -1255,29 +1257,7 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  // --- Scrollspy: mark the nav link for the section in view ---
-  var sections = ['about','tracks','prizes','faq'].map(function(id){
-    return document.getElementById(id);
-  }).filter(Boolean);
-  var navLinksById = {};
-  document.querySelectorAll('.nav-menu a[href^="#"]').forEach(function(link){
-    navLinksById[link.getAttribute('href').slice(1)] = link;
-  });
-  if (sections.length && 'IntersectionObserver' in window) {
-    var spyObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        var link = navLinksById[entry.target.id];
-        if (!link) return;
-        if (entry.isIntersecting) {
-          Object.keys(navLinksById).forEach(function(id){
-            navLinksById[id].removeAttribute('aria-current');
-          });
-          link.setAttribute('aria-current', 'true');
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    sections.forEach(function(s){ spyObserver.observe(s); });
-  }
+  // Active navigation is coordinated with the reading guide in assets/motion.js.
 
   // --- Scroll reveal ---
   var revealEls = document.querySelectorAll('.reveal');
@@ -1289,7 +1269,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0, rootMargin: '0px 0px -32px 0px' });
     revealEls.forEach(function(el){ revealObserver.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
@@ -1628,5 +1608,10 @@
 })();
 </script>
 
+<nav class="scroll-guide" aria-label="Page navigation" hidden>
+  <span class="scroll-guide-label"></span>
+  <a href="#top" aria-label="Back to top"><span aria-hidden="true">↑</span> Top</a>
+</nav>
+<script src="assets/motion.js"></script>
 </body>
 </html>
