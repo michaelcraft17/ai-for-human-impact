@@ -1,0 +1,132 @@
+/* Original layout, with larger typography and more generous sizing. */
+.wrap,.navrow { max-width:1280px; }
+.hero h1 { font-size:clamp(3.1rem,6.7vw,6rem); letter-spacing:-.025em; line-height:1.05; }
+section { padding:104px 0; }
+.section-head h2 { font-size:clamp(2rem,4vw,3.1rem); letter-spacing:-.025em; }
+.mission-band { padding:100px 0; }
+.mission-band .wrap { max-width:1020px; }
+.mission-statement { font-size:clamp(2rem,4.2vw,3.4rem); }
+/* Keep the original two-logo lockup together at every screen size. */
+.hero-sponsors { flex-wrap:nowrap; gap:18px; }
+/* Equal desktop columns let both marks grow together without stretching. */
+@media (min-width:901px) {
+  .hero-grid { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .hero-sponsors { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,.8694fr); width:100%; }
+  .hero-sponsors .hs-logo img { width:100%; height:auto; }
+}
+
+@media (max-width:900px) {
+  .hero h1 { font-size:clamp(3rem,9vw,5rem); }
+  section { padding:72px 0; }
+}
+@media (max-width:640px) {
+  .hero-sponsors { gap:14px; }
+  .hs-logo--basis img { width:clamp(100px,32vw,150px); }
+  .hs-logo--nnea img { height:clamp(110px,34vw,150px); }
+  .mission-band { padding:72px 0; }
+}
+/* Keep navigation clear of the brand at tablet widths. */
+@media (max-width:1000px) {
+  .navlinks { gap:14px; }
+  .navrow { padding:12px 20px; }
+  .nav-menu { flex-direction:column; align-items:stretch; gap:0; position:absolute; left:0; right:0; top:100%; background:var(--white); border-bottom:1px solid var(--line); max-height:0; overflow:hidden; transition:max-height .25s ease; }
+  .nav-menu.nav-open { max-height:420px; overflow-y:auto; box-shadow:0 12px 20px rgba(46,45,41,.10); }
+  .nav-menu a.hide-mobile { display:block; padding:16px 20px !important; border-top:1px solid var(--line-soft); border-bottom:none !important; }
+  .nav-toggle { display:flex; }
+}
+
+/* Fine rules and restrained surfaces, inspired by the technology reference. */
+:root { --header-height:73px; --page-progress:0; }
+html { scroll-padding-top:calc(var(--header-height) + 24px); }
+header::after { content:""; position:absolute; left:0; bottom:-1px; width:100%; height:2px; background:var(--cardinal); transform:scaleX(var(--page-progress)); transform-origin:left; pointer-events:none; }
+header.scrolled { box-shadow:0 3px 18px rgba(46,45,41,.045); }
+.hero { padding-top:clamp(56px,7vw,88px); }
+.hero .meta { margin-bottom:24px; }
+.hero-scroll { display:inline-flex; align-items:center; gap:18px; margin-bottom:40px; padding:8px 0; color:var(--cardinal); font-size:.9rem; font-weight:600; text-decoration:none; border-bottom:1px solid var(--cardinal); }
+.hero-scroll span { font-size:1.15rem; transition:transform .2s ease; }
+.hero-scroll:hover span { transform:translateY(3px); }
+.hero-stats { border-radius:0; }
+.hero-stats strong { font-size:clamp(2.2rem,3.2vw,2.8rem); }
+.hero-stats li { padding-top:28px; padding-bottom:28px; }
+.section-head { max-width:760px; margin-bottom:48px; }
+.section-head h2::after { width:72px; height:1px; margin-top:24px; }
+.section-head p { line-height:1.65; }
+/* Decorative linework moves a little as the mission passes through the viewport. */
+.mission-band { overflow:hidden; isolation:isolate; }
+.mission-band::before,.mission-band::after { content:""; position:absolute; z-index:-1; width:560px; aspect-ratio:1; border:1px solid rgba(255,255,255,.13); border-radius:50%; pointer-events:none; transform:translateY(var(--mission-drift,0px)); }
+.mission-band::before { left:-360px; top:-240px; box-shadow:0 0 0 56px rgba(255,255,255,.025),0 0 0 112px rgba(255,255,255,.025); }
+.mission-band::after { right:-320px; bottom:-320px; box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 140px rgba(255,255,255,.025); }
+.mission-statement { line-height:1.22; letter-spacing:-.025em; }
+.mission-sub { margin-top:28px; }
+.about-block { border-left-width:1px; padding-left:32px; }
+.about-label { font-size:1.5rem; }
+.track,.fact-card,.judge-card,.hub-card,.why-card,.prize-group { box-shadow:none; border-radius:0; }
+.track { padding:38px 34px; border-top-width:1px; }
+.track:hover { box-shadow:none; transform:none; border-color:var(--cardinal); }
+.track-index { font-family:var(--sans); font-size:.8rem; letter-spacing:.16em; margin-bottom:28px; }
+.track h3 { font-size:clamp(1.5rem,2.2vw,1.85rem); letter-spacing:-.015em; }
+.track p { line-height:1.65; }
+.track p.examples { padding-top:22px; }
+.why-card { padding:32px 26px; }
+.why-icon { border:1px solid var(--line); background:transparent; }
+.why-card h3 { font-size:1.35rem; }
+.fact-card { border-top-width:1px; padding:32px; }
+.prize-group { padding:30px; }
+.prize-group-label { border-bottom-width:1px; padding-bottom:20px; margin-bottom:8px; font-size:1.45rem; }
+.prize-list li { padding:18px 0; }
+.tl-item .tl-label { font-size:1.3rem; }
+.tl-item .tl-desc { line-height:1.65; }
+summary { padding:26px 4px; font-size:clamp(1.2rem,2vw,1.45rem); }
+.hub-card { border-left-width:1px; padding:38px 32px; }
+.hub-card:hover { transform:none; box-shadow:none; border-color:var(--cardinal); }
+.sponsor-col { min-width:0; }
+.sponsor-card { box-shadow:none; border-radius:0; }
+.sponsor-card:hover { box-shadow:none; }
+.final-cta { padding:112px 0 96px; }
+.final-cta h2 { max-width:20ch; margin-left:auto; margin-right:auto; font-size:clamp(2.5rem,5vw,4rem); letter-spacing:-.025em; }
+@media (max-width:640px) {
+  .hero-scroll { margin-bottom:32px; }
+  .hero-stats li { padding:20px; }
+  .hero-stats strong { font-size:1.8rem; }
+  .section-head { margin-bottom:32px; }
+  .track,.fact-card,.hub-card,.prize-group { padding:28px 24px; }
+  .track-index { margin-bottom:20px; }
+  .final-cta { padding:80px 0; }
+}
+/* Enlarged text remains in normal flow, including long words in the hero. */
+html:is([data-a11y-size],[data-a11y-spacing],[data-a11y-dyslexia]) .hero-grid { grid-template-columns:1fr; }
+html:is([data-a11y-size],[data-a11y-spacing],[data-a11y-dyslexia]) .hero h1 { overflow-wrap:anywhere; }
+html:is([data-a11y-size],[data-a11y-spacing],[data-a11y-dyslexia]) .hero-sponsors { margin-bottom:40px; }
+html[data-a11y-pause] .mission-band::before,html[data-a11y-pause] .mission-band::after { transform:none; }
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  .mission-band::before,.mission-band::after { transform:none; }
+}
+@media print { header::after,.hero-scroll,.mission-band::before,.mission-band::after { display:none; } .reveal { opacity:1; transform:none; } }
+
+/* Quiet entrances: a short rise, with only a small delay between neighboring cards. */
+.reveal { opacity:1; transform:none; transition:none; }
+.motion-enabled .reveal { transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1); }
+.motion-enabled .reveal:not(.in-view) { opacity:0; transform:translateY(12px); }
+.motion-enabled :is(.tracks-grid,.facts,.hub-grid) > .reveal:nth-child(even) { transition-delay:70ms; }
+.motion-enabled :is(.why-grid,.judges-grid,.prize-groups) > .reveal:nth-child(2) { transition-delay:60ms; }
+.motion-enabled :is(.why-grid,.judges-grid,.prize-groups) > .reveal:nth-child(3) { transition-delay:120ms; }
+.motion-enabled .why-grid > .reveal:nth-child(4) { transition-delay:180ms; }
+.motion-enabled .section-head h2::after { transform-origin:left; transition:transform .65s cubic-bezier(.2,.7,.2,1); }
+.motion-enabled .section-head:not(.in-view) h2::after { transform:scaleX(0); }
+.motion-enabled .section-head--center h2::after { transform-origin:center; }
+.scroll-guide { position:fixed; z-index:45; left:20px; bottom:20px; display:flex; align-items:center; gap:16px; padding:0 6px 0 16px; background:var(--white); color:var(--ink-soft); border:1px solid var(--line); border-radius:4px; box-shadow:0 3px 16px #2e2d290a; font:500 .8rem var(--sans); }
+.scroll-guide[hidden] { display:none; }
+.scroll-guide-label { max-width:22ch; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.scroll-guide a { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-width:64px; min-height:44px; color:var(--cardinal); font-weight:600; text-decoration:none; border-left:1px solid var(--line-soft); }
+.scroll-guide a:hover { background:var(--sand); }
+body:has(.a11y-widget[data-pos="bl"]:not(.a11y-hidden)) .scroll-guide { bottom:92px; }
+@media (max-width:640px) {
+  .scroll-guide { left:12px; bottom:20px; padding:0; }
+  .scroll-guide-label { display:none; }
+  .scroll-guide a { border:0; }
+  .motion-enabled .reveal { transition-delay:0ms !important; }
+}
+@media (prefers-reduced-motion:reduce) { .motion-enabled .reveal { opacity:1; transform:none; } .motion-enabled .section-head h2::after { transform:none; } }
+html[data-a11y-pause] .motion-enabled .reveal { opacity:1; transform:none; }
+@media print { .scroll-guide { display:none; } .motion-enabled .reveal { opacity:1; transform:none; } }
