@@ -28,9 +28,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
 <meta name="theme-color" content="#8C1515">
 <style>
   :root{
@@ -58,7 +58,7 @@
     --line-soft:#E8E6DF;
     --accent:var(--cardinal);
 
-    --serif:'Source Serif 4', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+    --serif:'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* trial: Stanford Medicine fonts. Original: 'Source Serif 4', 'Source Serif Pro', Georgia, 'Times New Roman', serif */
     --sans:'Source Sans 3', 'Source Sans Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
     --radius:4px;
@@ -346,7 +346,7 @@
   .about-block p{ margin:0; color:var(--ink-soft); font-size:1.15rem; line-height:1.65; max-width:64ch; }
 
   /* ---------- CARDS ---------- */
-  .track, .fact-card, .judge-card, .hub-card, .why-card{
+  .track, .fact-card, .judge-card, .hub-card, .why-card, .speaker-card{
     background:var(--white);
     border:1px solid var(--line);
     border-radius:var(--radius);
@@ -464,6 +464,39 @@
   .prize-list .p-desc{ color:var(--ink-soft); font-size:0.9rem; font-weight:400; display:block; margin-top:2px; }
   .prize-list .p-amt{ font-family:var(--serif); font-weight:700; font-size:1.15rem; white-space:nowrap; color:var(--cardinal); }
 
+  /* ---------- SPEAKERS ---------- */
+  .speakers-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  @media (max-width:760px){ .speakers-grid{grid-template-columns:1fr;} }
+  .speaker-card{
+    position:relative; overflow:hidden;
+    padding:40px 30px 36px;
+    border-top:4px solid var(--cardinal);
+    text-align:center;
+    display:flex; flex-direction:column; align-items:center;
+  }
+  .speaker-card:hover{ box-shadow:var(--shadow-hover); transform:translateY(-2px); }
+  .speaker-photo{
+    width:148px; height:148px; border-radius:50%;
+    padding:5px; background:var(--white);
+    border:2px solid var(--cardinal);
+    box-shadow:0 6px 18px rgba(46,45,41,0.14);
+    margin-bottom:22px;
+  }
+  .speaker-photo img{
+    display:block; width:100%; height:100%;
+    border-radius:50%; object-fit:cover;
+  }
+  .speaker-tag{
+    font-size:0.74rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--cardinal); margin:0 0 8px;
+  }
+  .speaker-card h3{ font-size:1.5rem; font-weight:600; line-height:1.2; margin:0 0 8px; color:var(--ink); }
+  .speaker-card .speaker-title{ font-size:0.98rem; line-height:1.4; color:var(--ink-soft); margin:0; max-width:42ch; text-wrap:balance; }
+  .speaker-card .speaker-title span{ display:block; }
+  .speaker-rule{ width:44px; height:2px; background:var(--cardinal); border:0; margin:22px 0 20px; }
+  .speaker-card p.speaker-bio{ margin:0; color:var(--ink); font-size:1rem; line-height:1.65; text-align:left; }
+  @media (prefers-reduced-motion:reduce){ .speaker-card:hover{ transform:none; } }
+
   /* ---------- JUDGES ---------- */
   .judges-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   @media (max-width:760px){ .judges-grid{grid-template-columns:1fr;} }
@@ -509,9 +542,8 @@
   .hub-card p{ margin:0; color:var(--ink-soft); }
 
   /* ---------- SPONSORS ---------- */
-  .sponsors-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+  .sponsors-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; margin-top:32px; }
   @media (max-width:760px){ .sponsors-grid{ grid-template-columns:1fr; gap:56px; } }
-  .sponsors-grid .section-head{ margin-bottom:32px; }
   .sponsors-row{ display:flex; justify-content:center; }
   .sponsor-card{
     display:inline-flex; align-items:center; justify-content:center;
@@ -1077,6 +1109,33 @@
     </div>
   </section>
 
+  <section id="speakers" aria-labelledby="speakers-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="speakers-h">Speakers</h2>
+        <p>Guest speakers joining us to talk AI, neurodiversity, and building for real people.</p>
+      </div>
+      <div class="speakers-grid reveal">
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="assets/speaker-lawrence-fung.jpg" alt="Portrait of Lawrence Fung" width="350" height="350" loading="lazy"></div>
+          <p class="speaker-tag">Guest Speaker</p>
+          <h3>Lawrence Fung, M.D., Ph.D.</h3>
+          <p class="speaker-title"><span>Director, Stanford Center for Neurodiversity and Human Potential</span><span>Associate Professor of Psychiatry &amp; Behavioral Sciences</span></p>
+          <hr class="speaker-rule">
+          <p class="speaker-bio">Dr. Lawrence Fung directs the Stanford Center for Neurodiversity and Human Potential and the Neurodiversity Clinic, and leads the Fung Lab. His work on autism and neurodiversity ranges from multi-modal neuroimaging to a new conceptualization of neurodiversity and its use in clinical, educational, and employment settings. He holds an M.D. from George Washington University and a Ph.D. in Chemical Engineering from Cornell University, and is board-certified in Psychiatry and Child/Adolescent Psychiatry.</p>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="assets/speaker-yu-sun.jpg" alt="Portrait of Yu Sun" width="480" height="480" loading="lazy"></div>
+          <p class="speaker-tag">Guest Speaker</p>
+          <h3>Yu Sun, Ph.D.</h3>
+          <p class="speaker-title"><span>Founder, Mantou AI &amp; Coding Mind Institute</span><span>Professor, Cal Poly &amp; Vanderbilt University</span></p>
+          <hr class="speaker-rule">
+          <p class="speaker-bio">Dr. Yu Sun is a tenured Professor of Computer Science at both California State Polytechnic University and Vanderbilt University, and the founder of Mantou AI and the Coding Mind Institute. As creator and lead instructor of the Parent AI Course, he teaches parents with no technical background to use Claude Code to ship real websites, apps, and data tools for their families and businesses, moving AI beyond chat and into everyday life.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="judges" aria-labelledby="judges-h">
     <div class="wrap">
       <div class="section-head reveal">
@@ -1084,21 +1143,30 @@
         <p>Meet the judges evaluating this year's projects.<span class="placeholder-tag">lineup TBA</span></p>
       </div>
       <div class="judges-grid reveal">
-        <div class="judge-card">
-          <div class="judge-avatar" aria-hidden="true">?</div>
-          <h3>Judge Name</h3>
-          <p class="judge-title">Title · Organization</p>
-        </div>
-        <div class="judge-card">
-          <div class="judge-avatar" aria-hidden="true">?</div>
-          <h3>Judge Name</h3>
-          <p class="judge-title">Title · Organization</p>
-        </div>
-        <div class="judge-card">
-          <div class="judge-avatar" aria-hidden="true">?</div>
-          <h3>Judge Name</h3>
-          <p class="judge-title">Title · Organization</p>
-        </div>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="assets/speaker-lawrence-fung.jpg" alt="Portrait of Lawrence Fung" width="350" height="350" loading="lazy"></div>
+          <p class="speaker-tag">Judge</p>
+          <h3>Lawrence Fung, M.D., Ph.D.</h3>
+          <p class="speaker-title"><span>Director, Stanford Center for Neurodiversity and Human Potential</span><span>Associate Professor of Psychiatry &amp; Behavioral Sciences</span></p>
+          <hr class="speaker-rule">
+          <p class="speaker-bio">Dr. Lawrence Fung directs the Stanford Center for Neurodiversity and Human Potential and the Neurodiversity Clinic, and leads the Fung Lab. His work on autism and neurodiversity ranges from multi-modal neuroimaging to a new conceptualization of neurodiversity and its use in clinical, educational, and employment settings. He holds an M.D. from George Washington University and a Ph.D. in Chemical Engineering from Cornell University, and is board-certified in Psychiatry and Child/Adolescent Psychiatry.</p>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="assets/speaker-yu-sun.jpg" alt="Portrait of Yu Sun" width="480" height="480" loading="lazy"></div>
+          <p class="speaker-tag">Judge</p>
+          <h3>Yu Sun, Ph.D.</h3>
+          <p class="speaker-title"><span>Founder, Mantou AI &amp; Coding Mind Institute</span><span>Professor, Cal Poly &amp; Vanderbilt University</span></p>
+          <hr class="speaker-rule">
+          <p class="speaker-bio">Dr. Yu Sun is a tenured Professor of Computer Science at both California State Polytechnic University and Vanderbilt University, and the founder of Mantou AI and the Coding Mind Institute. As creator and lead instructor of the Parent AI Course, he teaches parents with no technical background to use Claude Code to ship real websites, apps, and data tools for their families and businesses, moving AI beyond chat and into everyday life.</p>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="assets/speaker-hanya-hu.jpg" alt="Portrait of Hanya Hu" width="200" height="200" loading="lazy"></div>
+          <p class="speaker-tag">Judge</p>
+          <h3>Hanya Hu</h3>
+          <p class="speaker-title"><span>Founder &amp; CEO, HerPower AI</span><span>Adjunct Professor, CSTU</span></p>
+          <hr class="speaker-rule">
+          <p class="speaker-bio">Hanya Hu is the founder and CEO of HerPower AI, a Palo Alto–born global AI innovation community dedicated to empowering women, with a goal of empowering one million women worldwide by the end of 2027. A former COO of two multinational technology companies, she is a veteran entrepreneur (Hundsun, nonda, and more), growth hacker, angel investor, and author, and an adjunct professor at CSTU. She is a 2026 recipient of the World Women's Organization's Global Most Influential Women award in Culture.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -1146,13 +1214,13 @@
     </div>
   </section>
 
-  <section id="sponsors" class="band" aria-labelledby="sponsors-h venue-sponsor-h">
+  <section id="sponsors" class="band" aria-labelledby="sponsors-h">
     <div class="wrap">
+      <div class="section-head section-head--center reveal">
+        <h2 id="sponsors-h">Partners</h2>
+      </div>
       <div class="sponsors-grid">
         <div class="sponsor-col">
-          <div class="section-head section-head--center reveal">
-            <h2 id="sponsors-h">Partner</h2>
-          </div>
           <div class="sponsors-row reveal">
             <a class="sponsor-card sponsor-card--dark" href="https://www.stanfordnnea.com/" target="_blank" rel="noopener">
               <img src="assets/partner-stanford-nnea.png" alt="Stanford NNEA" width="253" height="291">
@@ -1161,9 +1229,6 @@
           <p class="sponsor-caption">Stanford NNEA</p>
         </div>
         <div class="sponsor-col">
-          <div class="section-head section-head--center reveal">
-            <h2 id="venue-sponsor-h">Sponsor</h2>
-          </div>
           <div class="sponsors-row reveal">
             <a class="sponsor-card" href="https://basisindependent.com/schools/ca/silicon-valley/" target="_blank" rel="noopener">
               <img src="assets/sponsor-basis-independent.png" alt="BASIS Independent Silicon Valley">
@@ -1204,8 +1269,9 @@
           <li><a href="#dates">Dates</a></li>
           <li><a href="#rules">Rules &amp; eligibility</a></li>
           <li><a href="#prizes">Prizes</a></li>
+          <li><a href="#speakers">Speakers</a></li>
           <li><a href="#judges">Judges</a></li>
-          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="#sponsors">Partners</a></li>
         </ul>
       </div>
       <div>
@@ -1219,7 +1285,7 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 AI for Human Impact. Organized by BASIS students, for BASIS students.</span>
-      <span>Partner: Stanford NNEA · Sponsor: BASIS Independent Silicon Valley</span>
+      <span>Partners: Stanford NNEA · BASIS Independent Silicon Valley</span>
     </div>
   </div>
 </footer>
