@@ -208,6 +208,9 @@
   a.btn-outline:hover{ background:var(--cardinal); color:var(--white); }
   a.btn-lg{ padding:16px 34px; font-size:1.1rem; }
   .navlinks a.btn{ padding:9px 20px; font-size:0.95rem; }
+  .btn-donate{ gap:7px; }
+  .btn-donate svg{ flex:none; display:block; margin-top:-1px; }
+  @media (max-width:420px){ .navlinks a.btn{ padding:8px 12px; font-size:0.88rem; } .btn-donate{ gap:5px; } .btn-donate svg{ width:14px; height:14px; } }
 
   .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
 
@@ -443,7 +446,7 @@
     margin:6px 0 14px;
     color:var(--cardinal);
   }
-  .prize-groups{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .prize-groups{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
   @media (max-width:900px){ .prize-groups{grid-template-columns:1fr;} }
   .prize-group{
     background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
@@ -463,10 +466,30 @@
   .prize-list .p-name{ font-weight:600; color:var(--ink); }
   .prize-list .p-desc{ color:var(--ink-soft); font-size:0.9rem; font-weight:400; display:block; margin-top:2px; }
   .prize-list .p-amt{ font-family:var(--serif); font-weight:700; font-size:1.15rem; white-space:nowrap; color:var(--cardinal); }
+  .prize-list .p-count{ font-family:var(--sans); font-weight:400; font-size:0.85rem; color:var(--ink-soft); opacity:0.8; }
+
+  /* ---------- CO-ORGANIZERS ---------- */
+  .coorg-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+  @media (max-width:900px){ .coorg-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .coorg-grid{ grid-template-columns:1fr; } }
+  .coorg-card{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
+    padding:28px 24px; text-align:center; text-decoration:none;
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow-card);
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .coorg-card:hover{ transform:translateY(-2px); box-shadow:var(--shadow-hover); }
+  .coorg-single{ display:flex; justify-content:center; margin-top:32px; }
+  .coorg-single .coorg-card{ width:320px; max-width:100%; }
+  .coorg-logo{ display:flex; align-items:center; justify-content:center; height:64px; }
+  .coorg-logo img{ display:block; height:56px; width:auto; max-width:100%; }
+  .coorg-name{ font-size:0.92rem; color:var(--ink-soft); line-height:1.35; }
+  @media (prefers-reduced-motion:reduce){ .coorg-card:hover{ transform:none; } }
 
   /* ---------- SPEAKERS ---------- */
-  .speakers-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
-  @media (max-width:760px){ .speakers-grid{grid-template-columns:1fr;} }
+  .speakers-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:900px){ .speakers-grid{grid-template-columns:1fr;} }
   .speaker-card{
     position:relative; overflow:hidden;
     padding:40px 30px 36px;
@@ -487,14 +510,14 @@
     border-radius:50%; object-fit:cover;
   }
   .speaker-tag{
-    font-size:0.74rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase;
+    font-size:0.7rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase;
     color:var(--cardinal); margin:0 0 8px;
   }
-  .speaker-card h3{ font-size:1.5rem; font-weight:600; line-height:1.2; margin:0 0 8px; color:var(--ink); }
-  .speaker-card .speaker-title{ font-size:0.98rem; line-height:1.4; color:var(--ink-soft); margin:0; max-width:42ch; text-wrap:balance; }
+  .speaker-card h3{ font-size:1.25rem; font-weight:600; line-height:1.2; margin:0 0 6px; color:var(--ink); }
+  .speaker-card .speaker-title{ font-size:0.86rem; line-height:1.4; color:var(--ink-soft); margin:0; max-width:42ch; text-wrap:balance; }
   .speaker-card .speaker-title span{ display:block; }
   .speaker-rule{ width:44px; height:2px; background:var(--cardinal); border:0; margin:22px 0 20px; }
-  .speaker-card p.speaker-bio{ margin:0; color:var(--ink); font-size:1rem; line-height:1.65; text-align:left; }
+  .speaker-card p.speaker-bio{ margin:0; color:var(--ink); font-size:0.9rem; line-height:1.6; text-align:left; }
   @media (prefers-reduced-motion:reduce){ .speaker-card:hover{ transform:none; } }
 
   /* ---------- JUDGES ---------- */
@@ -869,6 +892,7 @@
         <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
       </button>
+      <a href="#" class="btn btn-outline btn-donate" data-todo-link="donate" title="Donation link coming soon" aria-disabled="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>Donate</a>
       <a href="#" class="btn btn-primary" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">Register</a>
     </nav>
   </div>
@@ -1014,24 +1038,15 @@
       <div class="section-head reveal">
         <h2 id="prizes-h">Prizes</h2>
         <p class="prize-lead">$10,000+</p>
-        <p>Awarded across overall winners, all four tracks, and special categories.</p>
+        <p>Awarded across all four tracks and special categories.</p>
       </div>
       <div class="prize-groups reveal">
         <div class="prize-group">
-          <h3 class="prize-group-label">Overall</h3>
+          <h3 class="prize-group-label">Track Prizes</h3>
           <ul class="prize-list">
-            <li><span><span class="p-name">Grand Prize</span><span class="p-desc">Best project across all tracks</span></span><span class="p-amt">$3,000</span></li>
-            <li><span class="p-name">2nd Place</span><span class="p-amt">$1,500</span></li>
-            <li><span class="p-name">3rd Place</span><span class="p-amt">$1,000</span></li>
-          </ul>
-        </div>
-        <div class="prize-group">
-          <h3 class="prize-group-label">Track Winners</h3>
-          <ul class="prize-list">
-            <li><span><span class="p-name">Health</span></span><span class="p-amt">$750</span></li>
-            <li><span><span class="p-name">Education</span></span><span class="p-amt">$750</span></li>
-            <li><span><span class="p-name">Accessibility</span></span><span class="p-amt">$750</span></li>
-            <li><span><span class="p-name">Sustainability</span></span><span class="p-amt">$750</span></li>
+            <li><span class="p-name">Grand Prize</span><span class="p-amt">$2,000<span class="p-count"> / 4</span></span></li>
+            <li><span class="p-name">2nd Place</span><span class="p-amt">$3,600<span class="p-count"> / 12</span></span></li>
+            <li><span class="p-name">3rd Place</span><span class="p-amt">$3,000<span class="p-count"> / 30</span></span></li>
           </ul>
         </div>
         <div class="prize-group">
@@ -1121,16 +1136,18 @@
           <p class="speaker-tag">Guest Speaker</p>
           <h3>Lawrence Fung, M.D., Ph.D.</h3>
           <p class="speaker-title"><span>Director, Stanford Center for Neurodiversity and Human Potential</span><span>Associate Professor of Psychiatry &amp; Behavioral Sciences</span></p>
-          <hr class="speaker-rule">
-          <p class="speaker-bio">Dr. Lawrence Fung directs the Stanford Center for Neurodiversity and Human Potential and the Neurodiversity Clinic, and leads the Fung Lab. His work on autism and neurodiversity ranges from multi-modal neuroimaging to a new conceptualization of neurodiversity and its use in clinical, educational, and employment settings. He holds an M.D. from George Washington University and a Ph.D. in Chemical Engineering from Cornell University, and is board-certified in Psychiatry and Child/Adolescent Psychiatry.</p>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="assets/speaker-sara-kolb.jpg" alt="Portrait of Sara Kolb" width="480" height="480" loading="lazy"></div>
+          <p class="speaker-tag">Guest Speaker</p>
+          <h3>Sara Kolb</h3>
+          <p class="speaker-title"><span>Head of School, Upper School</span><span>BASIS Independent Silicon Valley</span></p>
         </article>
         <article class="speaker-card">
           <div class="speaker-photo"><img src="assets/speaker-yu-sun.jpg" alt="Portrait of Yu Sun" width="480" height="480" loading="lazy"></div>
           <p class="speaker-tag">Guest Speaker</p>
           <h3>Yu Sun, Ph.D.</h3>
           <p class="speaker-title"><span>Founder, Mantou AI &amp; Coding Mind Institute</span><span>Professor, Cal Poly &amp; Vanderbilt University</span></p>
-          <hr class="speaker-rule">
-          <p class="speaker-bio">Dr. Yu Sun is a tenured Professor of Computer Science at both California State Polytechnic University and Vanderbilt University, and the founder of Mantou AI and the Coding Mind Institute. As creator and lead instructor of the Parent AI Course, he teaches parents with no technical background to use Claude Code to ship real websites, apps, and data tools for their families and businesses, moving AI beyond chat and into everyday life.</p>
         </article>
       </div>
     </div>
@@ -1149,7 +1166,7 @@
           <h3>Lawrence Fung, M.D., Ph.D.</h3>
           <p class="speaker-title"><span>Director, Stanford Center for Neurodiversity and Human Potential</span><span>Associate Professor of Psychiatry &amp; Behavioral Sciences</span></p>
           <hr class="speaker-rule">
-          <p class="speaker-bio">Dr. Lawrence Fung directs the Stanford Center for Neurodiversity and Human Potential and the Neurodiversity Clinic, and leads the Fung Lab. His work on autism and neurodiversity ranges from multi-modal neuroimaging to a new conceptualization of neurodiversity and its use in clinical, educational, and employment settings. He holds an M.D. from George Washington University and a Ph.D. in Chemical Engineering from Cornell University, and is board-certified in Psychiatry and Child/Adolescent Psychiatry.</p>
+          <p class="speaker-bio">Dr. Lawrence Fung directs the Stanford Center for Neurodiversity and Human Potential and the Neurodiversity Clinic. His research on autism and neurodiversity spans multi-modal neuroimaging to clinical, educational, and employment applications. He holds an M.D. from George Washington University and a Ph.D. in Chemical Engineering from Cornell University.</p>
         </article>
         <article class="speaker-card">
           <div class="speaker-photo"><img src="assets/speaker-yu-sun.jpg" alt="Portrait of Yu Sun" width="480" height="480" loading="lazy"></div>
@@ -1157,7 +1174,7 @@
           <h3>Yu Sun, Ph.D.</h3>
           <p class="speaker-title"><span>Founder, Mantou AI &amp; Coding Mind Institute</span><span>Professor, Cal Poly &amp; Vanderbilt University</span></p>
           <hr class="speaker-rule">
-          <p class="speaker-bio">Dr. Yu Sun is a tenured Professor of Computer Science at both California State Polytechnic University and Vanderbilt University, and the founder of Mantou AI and the Coding Mind Institute. As creator and lead instructor of the Parent AI Course, he teaches parents with no technical background to use Claude Code to ship real websites, apps, and data tools for their families and businesses, moving AI beyond chat and into everyday life.</p>
+          <p class="speaker-bio">Dr. Yu Sun is a tenured Professor of Computer Science at Cal Poly and Vanderbilt University, and the founder of Mantou AI and the Coding Mind Institute. As creator and lead instructor of the Parent AI Course, he teaches parents with no technical background to build and ship real products with Claude Code.</p>
         </article>
         <article class="speaker-card">
           <div class="speaker-photo"><img src="assets/speaker-hanya-hu.jpg" alt="Portrait of Hanya Hu" width="200" height="200" loading="lazy"></div>
@@ -1165,7 +1182,7 @@
           <h3>Hanya Hu</h3>
           <p class="speaker-title"><span>Founder &amp; CEO, HerPower AI</span><span>Adjunct Professor, CSTU</span></p>
           <hr class="speaker-rule">
-          <p class="speaker-bio">Hanya Hu is the founder and CEO of HerPower AI, a Palo Alto–born global AI innovation community dedicated to empowering women, with a goal of empowering one million women worldwide by the end of 2027. A former COO of two multinational technology companies, she is a veteran entrepreneur (Hundsun, nonda, and more), growth hacker, angel investor, and author, and an adjunct professor at CSTU. She is a 2026 recipient of the World Women's Organization's Global Most Influential Women award in Culture.</p>
+          <p class="speaker-bio">Hanya Hu is the founder and CEO of HerPower AI, a Palo Alto–born global AI community aiming to empower one million women by the end of 2027. A former COO of two multinational tech companies, she is also an angel investor, author, growth hacker, and adjunct professor at CSTU.</p>
         </article>
       </div>
     </div>
@@ -1240,6 +1257,54 @@
     </div>
   </section>
 
+  <section id="coorganizers" aria-labelledby="coorganizers-h">
+    <div class="wrap">
+      <div class="section-head section-head--center reveal">
+        <h2 id="coorganizers-h">Co-organizers</h2>
+      </div>
+      <div class="coorg-grid">
+        <a class="coorg-card reveal" href="https://biph.basischina.com/" target="_blank" rel="noopener">
+          <span class="coorg-logo"><img src="assets/coorg-basis-huizhou.png" alt="BASIS International School Park Lane Harbour" loading="lazy"></span>
+          <span class="coorg-name">BASIS International School Park Lane Harbour (Huizhou)</span>
+        </a>
+        <a class="coorg-card reveal" href="https://bisz.basischina.com/" target="_blank" rel="noopener">
+          <span class="coorg-logo"><img src="assets/coorg-basis-shenzhen.png" alt="BASIS International School Shenzhen" loading="lazy"></span>
+          <span class="coorg-name">BASIS International School Shenzhen</span>
+        </a>
+        <a class="coorg-card reveal" href="https://bigz.basischina.com/" target="_blank" rel="noopener">
+          <span class="coorg-logo"><img src="assets/coorg-basis-guangzhou.png" alt="BASIS International School Guangzhou" loading="lazy"></span>
+          <span class="coorg-name">BASIS International School Guangzhou</span>
+        </a>
+        <a class="coorg-card reveal" href="https://bbcd.basischina.com/" target="_blank" rel="noopener">
+          <span class="coorg-logo"><img src="assets/coorg-basis-chengdu.png" alt="BASIS Bilingual School Chengdu" loading="lazy"></span>
+          <span class="coorg-name">BASIS Bilingual School Chengdu</span>
+        </a>
+        <a class="coorg-card reveal" href="https://biwh.basischina.com/" target="_blank" rel="noopener">
+          <span class="coorg-logo"><img src="assets/coorg-basis-wuhan.png" alt="BASIS International School Wuhan" loading="lazy"></span>
+          <span class="coorg-name">BASIS International School Wuhan</span>
+        </a>
+        <a class="coorg-card reveal" href="https://bbbj.basischina.com/" target="_blank" rel="noopener">
+          <span class="coorg-logo"><img src="assets/coorg-basis-beijing.png" alt="BASIS Bilingual School Beijing" loading="lazy"></span>
+          <span class="coorg-name">BASIS Bilingual School Beijing</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="our-sponsors" class="band" aria-labelledby="our-sponsors-h">
+    <div class="wrap">
+      <div class="section-head section-head--center reveal">
+        <h2 id="our-sponsors-h">Sponsors</h2>
+      </div>
+      <div class="coorg-single">
+        <a class="coorg-card reveal" href="https://codingmind.com/" target="_blank" rel="noopener">
+          <span class="coorg-logo"><img src="assets/sponsor-coding-mind.png" alt="Coding Mind" width="201" height="69" loading="lazy"></span>
+          <span class="coorg-name">Coding Mind</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="final-cta" class="final-cta" aria-labelledby="final-cta-h">
     <div class="wrap">
       <h2 id="final-cta-h" class="reveal">Ready to build something that matters?</h2>
@@ -1272,6 +1337,8 @@
           <li><a href="#speakers">Speakers</a></li>
           <li><a href="#judges">Judges</a></li>
           <li><a href="#sponsors">Partners</a></li>
+          <li><a href="#coorganizers">Co-organizers</a></li>
+          <li><a href="#our-sponsors">Sponsors</a></li>
         </ul>
       </div>
       <div>
