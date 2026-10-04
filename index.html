@@ -484,12 +484,11 @@
   .coorg-single .coorg-card{ width:320px; max-width:100%; }
   .coorg-logo{ display:flex; align-items:center; justify-content:center; height:64px; }
   .coorg-logo img{ display:block; height:56px; width:auto; max-width:100%; }
+  .coorg-logo--wide img{ height:auto; width:190px; }
   .coorg-name{ font-size:0.92rem; color:var(--ink-soft); line-height:1.35; }
   @media (prefers-reduced-motion:reduce){ .coorg-card:hover{ transform:none; } }
 
   /* ---------- SPEAKERS ---------- */
-  .speakers-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-  @media (max-width:900px){ .speakers-grid{grid-template-columns:1fr;} }
   .speaker-card{
     position:relative; overflow:hidden;
     padding:40px 30px 36px;
@@ -520,9 +519,29 @@
   .speaker-card p.speaker-bio{ margin:0; color:var(--ink); font-size:0.9rem; line-height:1.6; text-align:left; }
   @media (prefers-reduced-motion:reduce){ .speaker-card:hover{ transform:none; } }
 
+  /* ---------- TEAM ---------- */
+  .team-grid{ display:flex; justify-content:center; flex-wrap:wrap; gap:24px; }
+  .team-grid .speaker-card{ flex:0 1 460px; min-width:0; }
+  .team-grid .speaker-card p.speaker-bio{ font-size:0.9rem; line-height:1.6; }
+  .team-grid .speaker-bio a{ color:#1a5fb4; text-decoration:underline; text-underline-offset:2px; }
+  .team-links{ list-style:none; margin:20px 0 0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+  .team-links a{ display:inline-block; padding:7px 14px; border:1px solid var(--line); border-radius:999px; font-size:0.82rem; font-weight:500; color:var(--cardinal); text-decoration:none; background:var(--white); transition:border-color .2s ease, background .2s ease; }
+  .team-links a:hover{ border-color:var(--cardinal); background:var(--fog-light); }
+
   /* ---------- JUDGES ---------- */
-  .judges-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-  @media (max-width:760px){ .judges-grid{grid-template-columns:1fr;} }
+  .speakers-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:900px){ .speakers-grid{grid-template-columns:1fr;} }
+  /* compact judge cards */
+  .judges-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  @media (max-width:1100px){ .judges-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .judges-grid{ grid-template-columns:1fr; } }
+  .judges-grid .speaker-card{ padding:22px 20px 20px; border-top-width:3px; }
+  .judges-grid .speaker-photo{ width:92px; height:92px; padding:3px; border-width:1.5px; margin-bottom:12px; box-shadow:0 3px 10px rgba(46,45,41,0.12); }
+  .judges-grid .speaker-tag{ font-size:0.62rem; margin-bottom:4px; }
+  .judges-grid .speaker-card h3{ font-size:1.05rem; margin-bottom:3px; }
+  .judges-grid .speaker-card .speaker-title{ font-size:0.78rem; line-height:1.35; }
+  .judges-grid .speaker-rule{ width:32px; margin:12px 0 10px; }
+  .judges-grid .speaker-card p.speaker-bio{ font-size:0.8rem; line-height:1.5; }
   .judge-card{ padding:34px 26px; text-align:center; }
   .judge-avatar{
     width:72px; height:72px; margin:0 auto 18px;
@@ -911,7 +930,7 @@
             <a href="#" class="btn btn-primary" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">Register Now</a>
             <a href="#tracks" class="btn btn-outline">Explore Tracks</a>
           </div>
-          <p class="meta">Feb 6–12, 2027 · Fully online · Open to BASIS high school students</p>
+          <p class="meta">Feb 6–12, 2027 · Fully online · Open to global BASIS students</p>
           <a class="hero-scroll" href="#mission">Discover the challenge <span aria-hidden="true">↓</span></a>
         </div>
         <div class="hero-sponsors" role="group" aria-label="BASIS and Stanford NNEA">
@@ -1044,9 +1063,10 @@
         <div class="prize-group">
           <h3 class="prize-group-label">Track Prizes</h3>
           <ul class="prize-list">
-            <li><span class="p-name">Grand Prize</span><span class="p-amt">$2,000<span class="p-count"> / 4</span></span></li>
-            <li><span class="p-name">2nd Place</span><span class="p-amt">$3,600<span class="p-count"> / 12</span></span></li>
-            <li><span class="p-name">3rd Place</span><span class="p-amt">$3,000<span class="p-count"> / 30</span></span></li>
+            <li><span><span class="p-name">Grand Prize</span><span class="p-desc">One winner across all tracks</span></span><span class="p-amt">$1,500</span></li>
+            <li><span><span class="p-name">1st Place</span><span class="p-desc">One winner per track</span></span><span class="p-amt">4 × $1,000</span></li>
+            <li><span><span class="p-name">2nd Place</span><span class="p-desc">One winner per track</span></span><span class="p-amt">4 × $500</span></li>
+            <li><span><span class="p-name">3rd Place</span><span class="p-desc">One winner per track</span></span><span class="p-amt">4 × $300</span></li>
           </ul>
         </div>
         <div class="prize-group">
@@ -1157,7 +1177,7 @@
     <div class="wrap">
       <div class="section-head reveal">
         <h2 id="judges-h">Judges</h2>
-        <p>Meet the judges evaluating this year's projects.<span class="placeholder-tag">lineup TBA</span></p>
+        <p>Meet the judges evaluating this year's projects.</p>
       </div>
       <div class="judges-grid reveal">
         <article class="speaker-card">
@@ -1183,6 +1203,37 @@
           <p class="speaker-title"><span>Founder &amp; CEO, HerPower AI</span><span>Adjunct Professor, CSTU</span></p>
           <hr class="speaker-rule">
           <p class="speaker-bio">Hanya Hu is the founder and CEO of HerPower AI, a Palo Alto–born global AI community aiming to empower one million women by the end of 2027. A former COO of two multinational tech companies, she is also an angel investor, author, growth hacker, and adjunct professor at CSTU.</p>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="assets/speaker-casey-ma.jpg" alt="Portrait of Casey Ma" width="480" height="480" loading="lazy"></div>
+          <p class="speaker-tag">Judge</p>
+          <h3>Casey Ma, MBA, MPH</h3>
+          <p class="speaker-title"><span>NorCal Director, InGenius Prep</span><span>Healthcare Hackathon Lead, Yale University</span></p>
+          <hr class="speaker-rule">
+          <p class="speaker-bio">Casey Ma is NorCal Director at InGenius Prep and a Yale alumna with a background in education, healthcare, business, and college admissions. She previously worked in admissions at Yale and the UC system, and led Yale’s Healthcare Hackathon, a 20-year-old event that pairs interdisciplinary teams with real healthcare challenges.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" aria-labelledby="team-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="team-h">Meet the Team</h2>
+        <p>The students organizing AI for Human Impact.</p>
+      </div>
+      <div class="team-grid reveal">
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="assets/team-michael-chang.jpg" alt="Portrait of Michael Chang" width="480" height="480" loading="lazy"></div>
+          <p class="speaker-tag">President</p>
+          <h3>Michael Chang</h3>
+          <p class="speaker-title"><span>Hackathon Leader</span></p>
+          <hr class="speaker-rule">
+          <p class="speaker-bio">A 17-year-old senior at BASIS Silicon Valley, Michael leads hackathons and serves as a dedicated volunteer for FCSN. He has helped over 5,000 individuals with autism connect with 80,000+ support resources across 10 countries worldwide. Learn more about the initiative at <a href="https://autismcommunityorg.org/" target="_blank" rel="noopener">autismcommunityorg.org</a>.</p>
+          <ul class="team-links">
+            <li><a href="https://github.com/michaelcraft17" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:changcheng875@gmail.com">Email</a></li>
+          </ul>
         </article>
       </div>
     </div>
@@ -1234,7 +1285,7 @@
   <section id="sponsors" class="band" aria-labelledby="sponsors-h">
     <div class="wrap">
       <div class="section-head section-head--center reveal">
-        <h2 id="sponsors-h">Partners</h2>
+        <h2 id="sponsors-h">Hosts</h2>
       </div>
       <div class="sponsors-grid">
         <div class="sponsor-col">
@@ -1305,6 +1356,10 @@
           <span class="coorg-logo"><img src="assets/sponsor-ingenius-prep.svg" alt="InGenius Prep" width="202" height="36" loading="lazy"></span>
           <span class="coorg-name">InGenius Prep</span>
         </a>
+        <a class="coorg-card reveal" href="https://ventures.yale.edu/community/yale-healthcare-hackathon" target="_blank" rel="noopener">
+          <span class="coorg-logo coorg-logo--wide"><img src="assets/sponsor-yale-ventures.png" alt="Yale Ventures" width="376" height="31" loading="lazy"></span>
+          <span class="coorg-name">Yale Healthcare Hackathon</span>
+        </a>
       </div>
     </div>
   </section>
@@ -1340,7 +1395,8 @@
           <li><a href="#prizes">Prizes</a></li>
           <li><a href="#speakers">Speakers</a></li>
           <li><a href="#judges">Judges</a></li>
-          <li><a href="#sponsors">Partners</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#sponsors">Hosts</a></li>
           <li><a href="#coorganizers">Co-organizers</a></li>
           <li><a href="#our-sponsors">Sponsors</a></li>
         </ul>
@@ -1356,7 +1412,7 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 AI for Human Impact. Organized by BASIS students, for BASIS students.</span>
-      <span>Partners: Stanford NNEA · BASIS Independent Silicon Valley</span>
+      <span>Hosts: Stanford NNEA · BASIS Independent Silicon Valley</span>
     </div>
   </div>
 </footer>
