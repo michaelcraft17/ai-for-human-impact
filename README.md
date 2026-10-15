@@ -2,7 +2,7 @@
 
 Landing page for **AI for Human Impact**, a BASIS Schools hackathon (Feb 6–12, 2027). A static HTML site — vanilla HTML/CSS/JS, no build step, no dependencies.
 
-**Live site:** https://michaelcraft17.github.io/ai-for-human-impact/
+**Live site:** https://basisglobalhacks.com/ (the old `michaelcraft17.github.io/ai-for-human-impact/` URL redirects here)
 
 ## Structure
 
@@ -32,7 +32,13 @@ Then open `http://localhost:8080/index.html`.
 
 Deployed to **GitHub Pages** via the GitHub Actions workflow in `.github/workflows/deploy.yml`, which publishes `main` on every push. No build step is required — it just uploads the repository root as the Pages artifact.
 
-To connect a custom domain later: add a `CNAME` file with the domain, point its DNS at GitHub Pages, and set the domain in the repo's Settings → Pages.
+**Custom domain:** `basisglobalhacks.com` (registered at Namecheap). Because the site deploys via Actions, the domain is set in the repo's Settings → Pages, not with a `CNAME` file. DNS at Namecheap → Advanced DNS:
+
+- `A` records for `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+- `AAAA` records for `@` → `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
+- `CNAME` record for `www` → `michaelcraft17.github.io.`
+
+Keep auto-renew on: if the domain lapses while it's configured, the old `github.io` URL redirects to a dead domain.
 
 ## Outstanding TODOs
 
@@ -40,7 +46,6 @@ A few links are intentionally placeholders until real values exist — they're m
 
 - **Devpost registration link** — nav, hero, and footer "Register" buttons
 - **Discord invite link** — footer
-- **Custom domain** — none configured; site currently lives on the free `github.io` subdomain
 
 Once you have real values, search `index.html` for `data-todo-link` and swap each `href="#"` for the real URL/`mailto:`, then remove the matching `title`/`aria-disabled` attributes and the `<script>` block's placeholder click-guard (the `a[data-todo-link]` handler near the bottom of the file) is safe to leave in place — it's a no-op guard, but you can delete it once every placeholder is filled in.
 
