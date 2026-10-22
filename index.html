@@ -664,12 +664,6 @@
   footer a:hover{ color:var(--white); text-decoration:underline; text-underline-offset:3px; }
   footer .foot-email{ font-size:0.88rem; color:#B9B5A8; overflow-wrap:anywhere; }
   .foot-bottom{ border-top:1px solid rgba(218,215,203,0.22); padding-top:22px; font-size:0.88rem; color:#B9B5A8; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-  .placeholder-tag{
-    background:var(--fog-light); color:var(--cool-grey); border:1px solid var(--line);
-    font-family:var(--sans); font-weight:600; font-size:0.72rem; letter-spacing:0.02em;
-    padding:2px 8px; border-radius:2px; margin-left:8px; vertical-align:middle;
-  }
-  footer .placeholder-tag{ background:rgba(255,255,255,0.08); color:var(--fog); border-color:rgba(218,215,203,0.28); }
 
   /* ---------- ACCESSIBILITY MENU ----------
      Native widget (no third-party script). Options set data-a11y-* attributes on <html>;
@@ -929,7 +923,7 @@
         <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
       </button>
       <a href="https://hcb.hackclub.com/donations/start/basis-global-hacks" class="btn btn-outline btn-donate" target="_blank" rel="noopener" title="Donate through HCB (Hack Club)"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>Donate</a>
-      <a href="#" class="btn btn-primary" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">Register</a>
+      <a href="https://basisglobalhackathon.devpost.com/" class="btn btn-primary" target="_blank" rel="noopener">Register</a>
     </nav>
   </div>
 </header>
@@ -944,7 +938,7 @@
           <h1>BUILD. <span class="accent">INNOVATE.</span> IMPACT.</h1>
           <p class="lede">Build AI tools that solve real problems. For people, by people.</p>
           <div class="cta-row">
-            <a href="#" class="btn btn-primary" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">Register Now</a>
+            <a href="https://basisglobalhackathon.devpost.com/" class="btn btn-primary" target="_blank" rel="noopener">Register Now</a>
             <a href="#tracks" class="btn btn-outline">Explore Tracks</a>
           </div>
           <p class="meta">Feb 6–12, 2027 · Fully online · Open to global BASIS students</p>
@@ -1138,7 +1132,7 @@
     <div class="wrap">
       <div class="section-head reveal">
         <h2 id="rules-h">Eligibility &amp; requirements</h2>
-        <p>The short version — full rules are posted on Devpost.</p>
+        <p>The short version — full rules are posted on <a href="https://basisglobalhackathon.devpost.com/rules" target="_blank" rel="noopener">Devpost</a>.</p>
       </div>
       <div class="facts reveal">
         <div class="fact-card">
@@ -1307,8 +1301,8 @@
           <h3>Email us</h3>
           <p>Questions? Write to bisvglobalhackathon@gmail.com.</p>
         </a>
-        <a href="#" class="hub-card reveal" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">
-          <h3>Devpost<span class="placeholder-tag">coming soon</span></h3>
+        <a href="https://basisglobalhackathon.devpost.com/" class="hub-card reveal" target="_blank" rel="noopener">
+          <h3>Devpost</h3>
           <p>Register, participate, and submit your project.</p>
         </a>
       </div>
@@ -1437,7 +1431,7 @@
     <div class="wrap">
       <h2 id="final-cta-h" class="reveal">Ready to build something that matters?</h2>
       <p class="final-cta-stats reveal">7 Days · 4 Tracks · $10,000+ in Prizes</p>
-      <a href="#" class="btn btn-primary btn-lg reveal" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">Register Now</a>
+      <a href="https://basisglobalhackathon.devpost.com/" class="btn btn-primary btn-lg reveal" target="_blank" rel="noopener">Register Now</a>
       <p class="final-cta-tagline reveal">BUILD. <span class="accent">INNOVATE.</span> IMPACT.</p>
     </div>
   </section>
@@ -1473,7 +1467,7 @@
       <div>
         <h3>Get involved</h3>
         <ul>
-          <li><a href="#" data-todo-link="devpost" title="Devpost registration link coming soon" aria-disabled="true">Register on Devpost</a><span class="placeholder-tag">add link</span></li>
+          <li><a href="https://basisglobalhackathon.devpost.com/" target="_blank" rel="noopener">Register on Devpost</a></li>
           <li><a href="https://hcb.hackclub.com/donations/start/basis-global-hacks" target="_blank" rel="noopener">Donate</a></li>
           <li><a href="assets/sponsor-this-event.pdf" target="_blank" rel="noopener">Sponsor this event</a><br><a class="foot-email" href="mailto:bisvglobalhackathon@gmail.com">bisvglobalhackathon@gmail.com</a></li>
         </ul>
@@ -1573,12 +1567,6 @@
     }
   }
 
-  // --- Placeholder links: not live yet, don't navigate ---
-  document.querySelectorAll('a[data-todo-link]').forEach(function(link){
-    link.addEventListener('click', function(e){
-      e.preventDefault();
-    });
-  });
 })();
 </script>
 

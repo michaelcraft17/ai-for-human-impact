@@ -40,14 +40,6 @@ Deployed to **GitHub Pages** via the GitHub Actions workflow in `.github/workflo
 
 Keep auto-renew on: if the domain lapses while it's configured, the old `github.io` URL redirects to a dead domain.
 
-## Outstanding TODOs
-
-A few links are intentionally placeholders until real values exist — they're marked with `data-todo-link` attributes in `index.html` (and a visible "add link" tag in the footer) so they're easy to find and won't silently point somewhere wrong:
-
-- **Registration link** — nav, hero, footer, and Participant hub "Register" buttons.
-
-Once you have real values, search `index.html` for `data-todo-link` and swap each `href="#"` for the real URL/`mailto:`, then remove the matching `title`/`aria-disabled` attributes and the `<script>` block's placeholder click-guard (the `a[data-todo-link]` handler near the bottom of the file) is safe to leave in place — it's a no-op guard, but you can delete it once every placeholder is filled in.
-
 ## Layout and scroll interactions
 
 Restored the original section layouts, track cards, hero arrangement, and statistics panel. Kept larger headings, a wider content container, and more generous section spacing. The two hero logos remain side by side and scale together on small screens. The tablet menu opens below 1001px to leave room for the brand. No dependencies or build step were added.
