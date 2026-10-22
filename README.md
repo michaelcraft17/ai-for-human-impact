@@ -11,9 +11,12 @@ index.html        content, base styles and existing functionality
 assets/layout.css larger typography, responsive sizing and visual refinements
 assets/motion.js   subtle document-scroll decoration
 assets/
-  favicon.svg      site favicon
+  logo-mark.svg     site logo, also the main favicon
+  favicon-192.png   192x192 PNG favicon (Google asks for multiples of 48px)
   og-image.svg      source for the social share image
   og-image.png      1200x630 share image used by Open Graph / Twitter Card tags
+favicon.ico         16/32/48px fallback icon at the site root
+apple-touch-icon.png 180x180 iPhone home-screen icon
 robots.txt
 sitemap.xml
 ```
