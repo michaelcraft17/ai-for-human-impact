@@ -1,0 +1,193 @@
+/* Phone layout (640px and narrower). Desktop and tablet are untouched:
+   the first four rules only hide phone-only pieces at larger sizes. */
+.nav-menu a.nav-phone { display:none !important; }
+.scroll-guide .scroll-guide-cta { display:none; }
+.m-dots, .m-more { display:none; }
+
+@media (max-width:640px) {
+  /* ---------- Header: brand, Register, menu ---------- */
+  .topbar { display:none; }
+  .navrow { padding:10px 16px 10px 20px; gap:12px; }
+  .logo { font-size:1rem; line-height:1.1; gap:10px; min-width:0; }
+  .logo-mark { width:34px; height:34px; }
+  .logo-text { display:block; white-space:nowrap; }
+  .logo-text .accent { display:block; }
+  .navlinks { gap:8px; flex:none; }
+  .navlinks .btn-donate { display:none; }
+  .navlinks a.btn-primary { padding:10px 16px; font-size:.95rem; min-height:44px; }
+  .nav-toggle { width:44px; height:44px; order:1; }
+  .nav-menu a.nav-phone { display:block !important; }
+  @media (max-width:360px) {
+    .navrow { gap:8px; padding-right:12px; padding-left:16px; }
+    .logo { font-size:.86rem; gap:8px; }
+    .logo-mark { width:30px; height:30px; }
+    .navlinks { gap:6px; }
+    .navlinks a.btn-primary { padding:10px 12px; font-size:.9rem; }
+  }
+
+  /* ---------- Bottom bar: Top + Register, shown after the hero ---------- */
+  .scroll-guide,
+  body:has(.a11y-widget[data-pos="bl"]:not(.a11y-hidden)) .scroll-guide {
+    left:0; right:0; bottom:0; gap:10px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    border:0; border-top:1px solid var(--line); border-radius:0;
+    box-shadow:0 -6px 18px rgba(46,45,41,.08);
+  }
+  .scroll-guide a:not(.scroll-guide-cta) { flex:none; min-width:0; padding:0 14px; border:1px solid var(--line); border-radius:var(--radius); }
+  .scroll-guide a.scroll-guide-cta {
+    display:inline-flex; flex:1; min-height:44px; padding:10px 16px;
+    font-size:1rem; color:var(--white); background:var(--cardinal); border:2px solid var(--cardinal); border-radius:var(--radius);
+  }
+  .scroll-guide a.scroll-guide-cta:hover { color:var(--white); background:var(--cardinal-dark); border-color:var(--cardinal-dark); }
+  body:has(.scroll-guide:not([hidden])) .a11y-widget[data-pos^="b"] .a11y-trigger { bottom:calc(80px + env(safe-area-inset-bottom)); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding-top:36px; }
+  .hero-kicker { font-size:.78rem; margin-bottom:14px; }
+  .hero h1 { font-size:clamp(2.4rem,12vw,3.1rem); margin-bottom:16px; }
+  .hero p.lede { font-size:1.15rem; margin-bottom:24px; }
+  .hero .cta-row { flex-wrap:nowrap; gap:10px; margin-bottom:16px; }
+  .hero .cta-row .btn { flex:1 1 0; min-width:0; padding:14px 10px; }
+  .hero .meta { font-size:.9rem; margin-bottom:32px; }
+  .hero-scroll { display:none; }
+  .hero-sponsors { margin-bottom:32px; gap:14px; }
+  .hs-logo--basis img { width:clamp(96px,30vw,130px); }
+  .hs-logo--nnea img { height:clamp(92px,28vw,124px); }
+  .hs-x { font-size:1.5rem; }
+  .hero-stats { grid-template-columns:1fr 1fr 1.35fr; }
+  .hero-stats li { flex-direction:column; align-items:flex-start; gap:2px; padding:16px 12px; border-bottom:0; border-right:1px solid var(--line); }
+  .hero-stats li:last-child { border-right:0; }
+  .hero-stats strong { font-size:1.5rem; }
+  .hero-stats span { font-size:.82rem; line-height:1.25; }
+
+  /* ---------- Section rhythm ---------- */
+  section { padding:56px 0; }
+  .mission-band { padding:56px 0; }
+  .mission-sub { font-size:1.02rem; margin-top:18px; }
+  .section-head { margin-bottom:26px; }
+  .section-head h2 { margin-bottom:12px; }
+  .section-head h2::after { margin-top:14px; }
+  .section-head p { font-size:1.02rem; }
+
+  /* ---------- About ---------- */
+  .about-block { padding:16px 0 16px 18px; }
+  .about-label { font-size:1.2rem; margin-bottom:6px; }
+  .about-block p { font-size:1.02rem; line-height:1.6; }
+
+  /* ---------- Swipe rows: Tracks, Speakers, Judges ---------- */
+  .tracks-grid, .speakers-grid, .judges-grid {
+    display:flex; gap:12px; overflow-x:auto; overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory; scroll-padding:0 20px;
+    margin:0 -20px; padding:2px 20px 6px;
+    scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  .tracks-grid::-webkit-scrollbar, .speakers-grid::-webkit-scrollbar, .judges-grid::-webkit-scrollbar { display:none; }
+  .tracks-grid > *, .speakers-grid > *, .judges-grid > * { flex:0 0 84%; min-width:0; scroll-snap-align:start; }
+  .judges-grid { align-items:flex-start; }
+  .tracks-grid:focus-visible, .speakers-grid:focus-visible, .judges-grid:focus-visible { outline:3px solid var(--cardinal); outline-offset:-3px; }
+  /* Cards off to the side would otherwise stay faded until swiped into view. */
+  .motion-enabled :is(.tracks-grid,.speakers-grid,.judges-grid) > .reveal:not(.in-view) { opacity:1; transform:none; }
+
+  .m-dots { display:flex; justify-content:center; margin-top:8px; }
+  .m-dots button { width:26px; height:40px; padding:0; border:0; background:none; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .m-dots button::before { content:""; width:8px; height:8px; border-radius:4px; background:var(--line); transition:width .2s ease, background .2s ease; }
+  .m-dots button[aria-current="true"]::before { width:20px; background:var(--cardinal); }
+  .m-dots button:focus-visible { outline:2px solid var(--cardinal); outline-offset:-4px; border-radius:6px; }
+
+  .track { padding:24px 22px; }
+  .track-index { margin-bottom:14px; }
+  .track h3 { font-size:1.3rem; margin-bottom:10px; }
+  .track p { font-size:1rem; margin-bottom:14px; }
+  .track p.examples { font-size:.9rem; padding-top:14px; }
+
+  .speaker-card { padding:28px 20px 26px; }
+  .speaker-photo { width:112px; height:112px; margin-bottom:16px; }
+  .judges-grid .speaker-card { padding:22px 18px 18px; }
+  .judges-grid .speaker-photo { width:84px; height:84px; }
+  .judges-grid .speaker-card .speaker-title { font-size:.8rem; }
+  .judges-grid .speaker-card p.speaker-bio { font-size:.86rem; }
+
+  /* Judge bios: four lines, then "Read full bio" (only once mobile.js has run). */
+  html.m-js #judges .speaker-bio:not(.m-open) { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:4; overflow:hidden; }
+  .m-more { display:inline-flex; align-items:center; min-height:44px; margin-top:4px; padding:0 4px; border:0; background:none; color:var(--cardinal); font:600 .86rem var(--sans); text-decoration:underline; text-underline-offset:3px; cursor:pointer; align-self:flex-start; }
+  .m-more[hidden] { display:none; }
+
+  /* ---------- Why join: 2 × 2 ---------- */
+  .why-grid { grid-template-columns:1fr 1fr; gap:12px; }
+  .why-card { padding:18px 16px; }
+  .why-icon { width:40px; height:40px; margin-bottom:12px; }
+  .why-icon svg { width:21px; height:21px; }
+  .why-card h3 { font-size:1.05rem; line-height:1.25; margin-bottom:6px; }
+  .why-card p { font-size:.9rem; line-height:1.45; }
+
+  /* ---------- Prizes, eligibility, dates, FAQ, team, hub ---------- */
+  .section-head .prize-lead { font-size:2.8rem; margin:4px 0 10px; }
+  .prize-groups { gap:16px; }
+  .prize-group { padding:20px 18px; }
+  .prize-group-label { font-size:1.2rem; padding-bottom:14px; }
+  .prize-list li { padding:12px 0; }
+  .prize-list .p-amt { font-size:1.05rem; }
+
+  .facts { gap:16px; }
+  .fact-card { padding:22px 20px; }
+  .fact-label { font-size:1.15rem; margin-bottom:12px; }
+  .fact-card li { margin-bottom:8px; font-size:.98rem; }
+
+  .timeline { gap:20px; }
+  .tl-item .tl-label { font-size:1.12rem; margin-bottom:4px; }
+  .tl-item .tl-desc { font-size:.92rem; }
+
+  summary { padding:18px 2px; font-size:1.08rem; }
+  details p { padding:0 2px 18px; font-size:.98rem; }
+
+  .team-grid .speaker-card { padding:28px 20px 24px; }
+
+  .hub-grid { gap:12px; }
+  .hub-card { padding:20px 20px; }
+  .hub-card h3 { font-size:1.2rem; margin-bottom:6px; }
+  .hub-card p { font-size:.95rem; overflow-wrap:anywhere; }
+
+  /* ---------- Hosts side by side ---------- */
+  .sponsors-grid { grid-template-columns:1fr 1fr; gap:12px; margin-top:8px; }
+  .sponsor-card { width:100%; min-height:150px; padding:16px 14px; }
+  .sponsor-card img { width:100%; max-width:150px; }
+  .sponsor-card--dark { padding:14px; }
+  .sponsor-card--dark img { width:auto; height:118px; }
+  .sponsor-caption { font-size:.82rem; line-height:1.35; margin-top:10px; }
+
+  /* ---------- Co-organizers and Sponsors: two-column tiles ---------- */
+  .coorg-grid, .coorg-single { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px; }
+  .coorg-single .coorg-card { width:auto; }
+  .coorg-single .coorg-card:last-child:nth-child(odd) { grid-column:1 / -1; }
+  .coorg-card { gap:8px; padding:14px 10px; justify-content:flex-start; }
+  .coorg-logo { height:44px; }
+  .coorg-logo img { height:40px; }
+  .coorg-logo--wide img { height:auto; width:120px; }
+  .coorg-name { font-size:.78rem; line-height:1.3; }
+
+  /* ---------- Final call to action ---------- */
+  .final-cta { padding:64px 0; }
+  .final-cta h2 { font-size:2.1rem; }
+  .final-cta-stats { font-size:.9rem; margin-bottom:26px; }
+  .final-cta-tagline { margin-top:28px; }
+
+  /* ---------- Footer ---------- */
+  footer { padding-bottom:calc(84px + env(safe-area-inset-bottom)); }
+  footer .wrap { padding-top:40px; }
+  .foot-grid { gap:28px; margin-bottom:28px; }
+  .foot-grid > div:nth-child(2) ul { columns:2; column-gap:16px; }
+  footer li { margin-bottom:2px; break-inside:avoid; }
+  footer li a { display:inline-block; padding:6px 0; }
+  footer li a.foot-email { padding-top:0; }
+  .foot-bottom { flex-direction:column; gap:6px; }
+
+  /* ---------- Accessibility menu: large text falls back to one column ---------- */
+  html:is([data-a11y-size="2"],[data-a11y-size="3"],[data-a11y-spacing="3"],[data-a11y-dyslexia]) :is(.why-grid,.coorg-grid,.coorg-single,.sponsors-grid) { grid-template-columns:1fr; }
+  html:is([data-a11y-size="2"],[data-a11y-size="3"],[data-a11y-spacing="3"],[data-a11y-dyslexia]) .coorg-single .coorg-card:last-child { grid-column:auto; }
+  html:is([data-a11y-size="2"],[data-a11y-size="3"],[data-a11y-spacing="3"],[data-a11y-dyslexia]) .hero-stats { grid-template-columns:1fr; }
+  html:is([data-a11y-size="2"],[data-a11y-size="3"],[data-a11y-spacing="3"],[data-a11y-dyslexia]) .hero-stats li { flex-direction:row; align-items:baseline; gap:10px; border-right:0; border-bottom:1px solid var(--line); }
+  html:is([data-a11y-size="3"],[data-a11y-spacing="3"],[data-a11y-dyslexia]) .hero .cta-row { flex-wrap:wrap; }
+  html:is([data-a11y-size="3"],[data-a11y-spacing="3"],[data-a11y-dyslexia]) .hero .cta-row .btn { flex:1 1 100%; }
+  html:is([data-a11y-size="3"],[data-a11y-spacing="3"],[data-a11y-dyslexia]) :is(.tracks-grid,.speakers-grid,.judges-grid) > * { flex-basis:90%; }
+  html:is([data-a11y-size="3"],[data-a11y-spacing="3"],[data-a11y-dyslexia]) .navlinks a.btn-primary { padding:8px 10px; }
+}

@@ -10,6 +10,8 @@ Landing page for **AI for Human Impact**, a BASIS Schools hackathon (Feb 6–12,
 index.html        content, base styles and existing functionality
 assets/layout.css larger typography, responsive sizing and visual refinements
 assets/motion.js   subtle document-scroll decoration
+assets/mobile.css  phone layout (640px and narrower only)
+assets/mobile.js   phone swipe-row dots and "Read full bio" buttons
 assets/
   logo-mark.svg     site logo, also the main favicon
   favicon-192.png   192x192 PNG favicon (Google asks for multiples of 48px)
@@ -54,3 +56,7 @@ The visual polish draws on the Neuralink technology page’s thin rules, generou
 A compact reading guide appears after the hero, labels the current section on desktop, and provides a keyboard-friendly Back to top action. Section entrances run once with a short, restrained stagger; content is visible by default if JavaScript is unavailable. Active navigation clears when the reader leaves its section. The guide remains usable with motion disabled.
 
 The hero uses `assets/partner-stanford-nnea-dark-bold.png`, the selected high-resolution transparent NNEA recreation. Both hero logos scale proportionally within the desktop layout; the original logo assets remain available.
+
+## Phone layout
+
+`assets/mobile.css` and `assets/mobile.js` only change screens 640px wide or narrower; desktop and tablet look the same as before. On phones the top bar is hidden, the header shows the logo, Register and the menu (Dates, Judges and Donate are added to the menu), and a bar with Back to top and Register Now stays at the bottom after the hero until the final Register section. Tracks, Speakers and Judges become swipe rows with dots, judge bios show four lines with a "Read full bio" button, and Why join, Hosts, Co-organizers and Sponsors use two-column grids. Larger accessibility-menu text settings fall back to one column. The page is about 12,000px tall at 375px wide, down from about 20,900px.

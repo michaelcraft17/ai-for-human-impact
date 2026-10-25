@@ -11,6 +11,8 @@
   var sections = Array.from(document.querySelectorAll('main > section[id]'));
   var navLinks = Array.from(document.querySelectorAll('.nav-menu a[href^="#"]'));
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var phone = window.matchMedia('(max-width:640px)');
+  var finalCta = document.getElementById('final-cta');
   var frame = 0, headerHeight = 74, currentId = null;
   function motionAllowed() { return !reduced.matches && !root.hasAttribute('data-a11y-pause'); }
   function render() {
@@ -38,8 +40,10 @@
         else link.removeAttribute('aria-current');
       });
     }
+    // On phones the guide is the Register bar; it steps aside once the final Register section arrives.
+    var atEnd = phone.matches && finalCta && finalCta.getBoundingClientRect().top < window.innerHeight;
     // Do not remove a focused control from the keyboard user's tab sequence.
-    guide.hidden = hero.getBoundingClientRect().bottom > headerHeight && !guide.contains(document.activeElement);
+    guide.hidden = (hero.getBoundingClientRect().bottom > headerHeight || atEnd) && !guide.contains(document.activeElement);
   }
   function requestRender() { if (!frame) frame = window.requestAnimationFrame(render); }
   function measure() {
@@ -61,6 +65,7 @@
   window.addEventListener('resize', measure);
   window.addEventListener('load', measure);
   reduced.addEventListener('change', requestRender);
+  phone.addEventListener('change', requestRender);
   new MutationObserver(measure).observe(root, { attributes:true, attributeFilter:['data-a11y-pause','data-a11y-size','data-a11y-spacing','data-a11y-lh','data-a11y-dyslexia'] });
   if ('ResizeObserver' in window) {
     var observer = new ResizeObserver(measure);
