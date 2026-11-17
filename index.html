@@ -541,6 +541,9 @@
   /* ---------- TEAM ---------- */
   .team-grid{ display:flex; justify-content:center; flex-wrap:wrap; gap:24px; }
   .team-grid .speaker-card{ flex:0 1 460px; min-width:0; }
+  .ambassadors-grid .speaker-card{ flex-basis:calc((100% - 48px) / 3); }
+  @media (max-width:1100px){ .ambassadors-grid .speaker-card{ flex-basis:calc((100% - 24px) / 2); } }
+  @media (max-width:640px){ .ambassadors-grid .speaker-card{ flex-basis:100%; } }
   .team-subhead{ margin-top:80px; }
   .team-grid .speaker-card p.speaker-bio{ font-size:0.9rem; line-height:1.6; }
   .team-grid .speaker-bio a{ color:#1a5fb4; text-decoration:underline; text-underline-offset:2px; }
@@ -552,7 +555,7 @@
   .speakers-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   @media (max-width:900px){ .speakers-grid{grid-template-columns:1fr;} }
   /* compact judge cards */
-  .judges-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .judges-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
   @media (max-width:1100px){ .judges-grid{ grid-template-columns:repeat(2,1fr); } }
   @media (max-width:600px){ .judges-grid{ grid-template-columns:1fr; } }
   .judges-grid .speaker-card{ padding:22px 20px 20px; border-top-width:3px; }
@@ -896,6 +899,7 @@
   .a11y-tooltip[hidden]{ display:none; }
 </style>
 <link rel="stylesheet" href="assets/layout.css">
+<link rel="stylesheet" href="assets/portraits.css">
 <link rel="stylesheet" href="assets/mobile.css">
 </head>
 <body>
@@ -1170,19 +1174,19 @@
       </div>
       <div class="speakers-grid reveal">
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-lawrence-fung.jpg" alt="Portrait of Lawrence Fung" width="350" height="350" loading="lazy"></div>
+          <div class="speaker-photo portrait--lawrence-fung"><span class="portrait-crop"><img src="assets/speaker-lawrence-fung.jpg" alt="Portrait of Lawrence Fung" width="350" height="350" loading="lazy"></span></div>
           <p class="speaker-tag">Guest Speaker</p>
           <h3>Lawrence Fung, M.D., Ph.D.</h3>
           <p class="speaker-title"><span>Director, Stanford Center for Neurodiversity and Human Potential</span><span>Associate Professor of Psychiatry &amp; Behavioral Sciences</span></p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-sara-kolb.jpg" alt="Portrait of Sara Kolb" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--sara-kolb"><span class="portrait-crop"><img src="assets/speaker-sara-kolb.jpg" alt="Portrait of Sara Kolb" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Guest Speaker</p>
           <h3>Sara Kolb</h3>
           <p class="speaker-title"><span>Head of School, Upper School</span><span>BASIS Independent Silicon Valley</span></p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-yu-sun.jpg" alt="Portrait of Yu Sun" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--yu-sun"><span class="portrait-crop"><img src="assets/speaker-yu-sun.jpg" alt="Portrait of Yu Sun" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Guest Speaker</p>
           <h3>Yu Sun, Ph.D.</h3>
           <p class="speaker-title"><span>Founder, Mantou AI &amp; Coding Mind Institute</span><span>Professor, Cal Poly &amp; Vanderbilt University</span></p>
@@ -1199,7 +1203,7 @@
       </div>
       <div class="judges-grid reveal">
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-lawrence-fung.jpg" alt="Portrait of Lawrence Fung" width="350" height="350" loading="lazy"></div>
+          <div class="speaker-photo portrait--lawrence-fung"><span class="portrait-crop"><img src="assets/speaker-lawrence-fung.jpg" alt="Portrait of Lawrence Fung" width="350" height="350" loading="lazy"></span></div>
           <p class="speaker-tag">Judge</p>
           <h3>Lawrence Fung, M.D., Ph.D.</h3>
           <p class="speaker-title"><span>Director, Stanford Center for Neurodiversity and Human Potential</span><span>Associate Professor of Psychiatry &amp; Behavioral Sciences</span></p>
@@ -1207,7 +1211,7 @@
           <p class="speaker-bio">Dr. Lawrence Fung is Director of the Stanford Center for Neurodiversity and Human Potential and the Neurodiversity Clinic. His research on autism and neurodiversity spans multi-modal neuroimaging to clinical, educational, and employment applications. He holds an M.D. from George Washington University and a Ph.D. in Chemical Engineering from Cornell University.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-yu-sun.jpg" alt="Portrait of Yu Sun" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--yu-sun"><span class="portrait-crop"><img src="assets/speaker-yu-sun.jpg" alt="Portrait of Yu Sun" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Judge</p>
           <h3>Yu Sun, Ph.D.</h3>
           <p class="speaker-title"><span>Founder, Mantou AI &amp; Coding Mind Institute</span><span>Professor, Cal Poly &amp; Vanderbilt University</span></p>
@@ -1215,7 +1219,7 @@
           <p class="speaker-bio">Dr. Yu Sun is a tenured Professor of Computer Science at Cal Poly and Vanderbilt University. He founded Mantou AI and the Coding Mind Institute. He also created and leads the Parent AI Course, which teaches parents with no technical background to build and ship real products with Claude Code.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-casey-ma.jpg" alt="Portrait of Casey Ma" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--casey-ma"><span class="portrait-crop"><img src="assets/speaker-casey-ma.jpg" alt="Portrait of Casey Ma" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Judge</p>
           <h3>Casey Ma, MBA, MPH</h3>
           <p class="speaker-title"><span>NorCal Director, InGenius Prep</span><span>Healthcare Hackathon Lead, Yale University</span></p>
@@ -1223,7 +1227,7 @@
           <p class="speaker-bio">Casey Ma is NorCal Director at InGenius Prep, with a background in education, healthcare, business, and college admissions. She previously worked in admissions at Yale and the UC system, and led Yale’s Healthcare Hackathon, a 20-year-old event that pairs interdisciplinary teams with real healthcare challenges. She is a Yale alumna and holds an MBA and an MPH.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-tingting-chen.jpg" alt="Portrait of Tingting Chen" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--tingting-chen"><span class="portrait-crop"><img src="assets/speaker-tingting-chen.jpg" alt="Portrait of Tingting Chen" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Judge</p>
           <h3>Tingting Chen, Ph.D.</h3>
           <p class="speaker-title"><span>Professor of Computer Science</span><span>Cal Poly Pomona</span></p>
@@ -1231,7 +1235,7 @@
           <p class="speaker-bio">Dr. Tingting Chen is a Professor of Computer Science at Cal Poly Pomona, where she leads the CPP Trustworthy Medical AI Lab. Her research covers data privacy, health informatics, and AI applications in medical systems. Her work has been supported by the National Science Foundation, Google, Microsoft, and the U.S. Department of Education.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-jun-hu.jpg" alt="Portrait of Jun Hu" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--jun-hu"><span class="portrait-crop"><img src="assets/speaker-jun-hu.jpg" alt="Portrait of Jun Hu" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Judge</p>
           <h3>Jun Hu, Ph.D.</h3>
           <p class="speaker-title"><span>Technology Leader</span><span>Ph.D., Electrical Engineering, UC Santa Cruz</span></p>
@@ -1239,7 +1243,7 @@
           <p class="speaker-bio">Dr. Jun Hu is a technology leader with 20+ years of experience in software engineering, cloud infrastructure, and machine learning. She built AI and cloud infrastructure at Inceptio Technology, developed semiconductor lithography software at ASML, and conducted nanowire research at NASA. She holds a Ph.D. in Electrical Engineering from UC Santa Cruz.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-jin-xu.jpg" alt="Portrait of Jin Xu" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--jin-xu"><span class="portrait-crop"><img src="assets/speaker-jin-xu.jpg" alt="Portrait of Jin Xu" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Judge</p>
           <h3>Jin Xu</h3>
           <p class="speaker-title"><span>AI System Architect</span><span>Google Pixel</span></p>
@@ -1247,7 +1251,7 @@
           <p class="speaker-bio">Jin Xu is an AI System Architect on the Google Pixel team, specializing in hardware-software co-design. Her work focuses on performance analysis, software optimization, and hardware evaluation. She brings a diverse engineering background spanning high-performance computing and graphics architecture.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-glen-qin.jpg" alt="Portrait of Glen Qin" width="200" height="200" loading="lazy"></div>
+          <div class="speaker-photo portrait--glen-qin"><span class="portrait-crop"><img src="assets/speaker-glen-qin.jpg" alt="Portrait of Glen Qin" width="200" height="200" loading="lazy"></span></div>
           <p class="speaker-tag">Judge</p>
           <h3>Glen Qin, Ph.D.</h3>
           <p class="speaker-title"><span>President, California Science and Technology University (CSTU)</span><span>CSE &amp; MBA Departments</span></p>
@@ -1255,12 +1259,20 @@
           <p class="speaker-bio">Dr. Glen Qin is President of California Science and Technology University (CSTU), with 30+ years in higher education and technology. He held senior leadership roles at NETGEAR and ARESCOM, specializing in networking, cybersecurity, and tech management. He holds a Ph.D. in EECS from UC Berkeley and B.S. and M.S. degrees from Tsinghua University.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/speaker-kaushal-patel.jpg" alt="Portrait of Kaushal Patel" width="600" height="600" loading="lazy"></div>
+          <div class="speaker-photo portrait--kaushal-patel"><span class="portrait-crop"><img src="assets/speaker-kaushal-patel.jpg" alt="Portrait of Kaushal Patel" width="600" height="600" loading="lazy"></span></div>
           <p class="speaker-tag">Judge</p>
           <h3>Kaushal Patel</h3>
           <p class="speaker-title"><span>Member of Technical Staff, Reflection AI</span><span>Formerly OpenAI, Meta &amp; Google</span></p>
           <hr class="speaker-rule">
           <p class="speaker-bio">Kaushal Patel is a Member of Technical Staff at Reflection AI, building data infrastructure for AI research. He previously built large-scale AI, agent, search, ranking, and distributed systems at OpenAI, Meta, and Google. With 10+ years of industry experience, he has judged several hackathons and serves as a section leader for Stanford’s Code in Place.</p>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo portrait--xiaoliang-lu"><span class="portrait-crop"><img src="assets/speaker-xiaoliang-lu.jpg" alt="Portrait of Xiaoliang Lu" width="600" height="600" loading="lazy"></span></div>
+          <p class="speaker-tag">Judge</p>
+          <h3>Xiaoliang Lu</h3>
+          <p class="speaker-title"><span>Software Engineer</span><span>LinkedIn Talent Solutions</span></p>
+          <hr class="speaker-rule">
+          <p class="speaker-bio">Xiaoliang Lu is a Software Engineer at LinkedIn Talent Solutions, developing AI-powered, enterprise-grade applications—including AI-assisted InMail outreach, LinkedIn Talent Hub, and the LinkedIn AI Hiring Assistant—that combine large language models with robust safety guardrails, personalized experiences, and measurable outcomes to deliver reliability, performance, and compliance worldwide.</p>
         </article>
       </div>
     </div>
@@ -1274,7 +1286,7 @@
       </div>
       <div class="team-grid reveal">
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/team-michael-chang.jpg" alt="Portrait of Michael Chang" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--michael-chang"><span class="portrait-crop"><img src="assets/team-michael-chang.jpg" alt="Portrait of Michael Chang" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">President</p>
           <h3>Michael Chang</h3>
           <p class="speaker-title"><span>Hackathon Leader</span></p>
@@ -1289,9 +1301,9 @@
       <div class="section-head team-subhead reveal">
         <h2 id="ambassadors-h">Student Ambassadors</h2>
       </div>
-      <div class="team-grid reveal">
+      <div class="team-grid ambassadors-grid reveal">
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/team-gisela.jpg" alt="Portrait of Gisela Zou" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--gisela"><span class="portrait-crop"><img src="assets/team-gisela.jpg" alt="Portrait of Gisela Zou" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Student Ambassador</p>
           <h3>Gisela Zou</h3>
           <p class="speaker-title"><span>BASIS Independent Fremont</span></p>
@@ -1299,7 +1311,7 @@
           <p class="speaker-bio">At BASIS Independent Fremont, Gisela is a member of the Student Council and the AI Club. She enjoys tackling real-world problems and sharing what she learns, and wants to bring AI into the physical world to help people every day.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/team-lucy-liu.jpg" alt="Portrait of Lucy Liu" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--lucy-liu"><span class="portrait-crop"><img src="assets/team-lucy-liu.jpg" alt="Portrait of Lucy Liu" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Student Ambassador</p>
           <h3>Lucy Liu</h3>
           <p class="speaker-title"><span>BASIS International School Guangzhou</span></p>
@@ -1307,7 +1319,7 @@
           <p class="speaker-bio">At BASIS International School Guangzhou, Lucy founded the Where Are Fantastic Beasts Club and captains the school volleyball team. She shares Chinese and world myths bilingually with young audiences across China to inspire cross-cultural understanding.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/team-sophia-shao.jpg" alt="Portrait of Sophia Shao" width="480" height="480" loading="lazy"></div>
+          <div class="speaker-photo portrait--sophia-shao"><span class="portrait-crop"><img src="assets/team-sophia-shao.jpg" alt="Portrait of Sophia Shao" width="480" height="480" loading="lazy"></span></div>
           <p class="speaker-tag">Student Ambassador</p>
           <h3>Sophia Shao</h3>
           <p class="speaker-title"><span>BASIS International School Shenzhen</span></p>
@@ -1315,12 +1327,20 @@
           <p class="speaker-bio">At BASIS International School Shenzhen, Sophia is a curious and compassionate young innovator passionate about science and the humanities. A natural leader and creative thinker, she inspires others to explore, embrace challenges, and turn bold ideas into meaningful impact.</p>
         </article>
         <article class="speaker-card">
-          <div class="speaker-photo"><img src="assets/team-jannie-tang.jpg" alt="Portrait of Jannie Tang" width="800" height="800" loading="lazy"></div>
+          <div class="speaker-photo portrait--jannie-tang"><span class="portrait-crop"><img src="assets/team-jannie-tang.jpg" alt="Portrait of Jannie Tang" width="800" height="800" loading="lazy"></span></div>
           <p class="speaker-tag">Student Ambassador</p>
           <h3>Jannie Tang</h3>
           <p class="speaker-title"><span>BASIS International School Park Lane Harbour</span></p>
           <hr class="speaker-rule">
           <p class="speaker-bio">At BASIS International School Park Lane Harbour, Jannie is passionate about science, public speaking, and Model United Nations. Inspired by ballet and the arts, she enjoys bridging people with diverse perspectives and wants to explore how AI can bring positive change to communities.</p>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo portrait--william-lu"><span class="portrait-crop"><img src="assets/team-william-lu.jpg" alt="Portrait of William Lu" width="600" height="600" loading="lazy"></span></div>
+          <p class="speaker-tag">Student Ambassador</p>
+          <h3>William Lu</h3>
+          <p class="speaker-title"><span>BASIS Independent Silicon Valley</span></p>
+          <hr class="speaker-rule">
+          <p class="speaker-bio">At BASIS Independent Silicon Valley in San Jose, William enjoys mathematics and physics, supports his friends and classmates, serves as an assistant basketball coach for younger players, and wants to explore how AI can help students learn and grow together.</p>
         </article>
       </div>
     </div>
