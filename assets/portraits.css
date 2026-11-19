@@ -13,22 +13,22 @@
   transform:translate(var(--portrait-x,0%),var(--portrait-y,0%)) scale(var(--portrait-scale,1));
 }
 
-.portrait--lawrence-fung { --portrait-scale:1.654; --portrait-x:-25.73%; --portrait-y:0%; }
-.portrait--sara-kolb { --portrait-scale:1.115; --portrait-x:-9.28%; --portrait-y:-1.07%; }
-.portrait--yu-sun { --portrait-scale:1.232; --portrait-x:-7.38%; --portrait-y:-8.76%; }
-.portrait--casey-ma { --portrait-scale:1.299; --portrait-x:-12.53%; --portrait-y:-7.17%; }
-.portrait--tingting-chen { --portrait-scale:1.564; --portrait-x:-32.51%; --portrait-y:-10.98%; }
-.portrait--jun-hu { --portrait-scale:1.797; --portrait-x:-37.92%; --portrait-y:-29.12%; }
-.portrait--jin-xu { --portrait-scale:1.068; --portrait-x:-1.36%; --portrait-y:-6.64%; }
-.portrait--glen-qin { --portrait-scale:1.133; --portrait-x:-9.36%; --portrait-y:-4.77%; }
-.portrait--kaushal-patel { --portrait-scale:1; --portrait-x:0%; --portrait-y:0%; }
-.portrait--xiaoliang-lu { --portrait-scale:1.307; --portrait-x:-13.91%; --portrait-y:-5.4%; }
-.portrait--michael-chang { --portrait-scale:1.198; --portrait-x:-13.48%; --portrait-y:-4.88%; }
-.portrait--gisela { --portrait-scale:1.362; --portrait-x:-18.64%; --portrait-y:-14.61%; }
-.portrait--lucy-liu { --portrait-scale:1.274; --portrait-x:-13.07%; --portrait-y:-7.52%; }
-.portrait--sophia-shao { --portrait-scale:1.491; --portrait-x:-24.31%; --portrait-y:-18.5%; }
-.portrait--jannie-tang { --portrait-scale:1.134; --portrait-x:-5.53%; --portrait-y:-3.57%; }
-.portrait--william-lu { --portrait-scale:1.898; --portrait-x:-47.58%; --portrait-y:-18.18%; }
-.portrait--steven-yang { --portrait-scale:1; --portrait-x:0%; --portrait-y:0%; }
-.portrait--irene-zhang { --portrait-scale:1; --portrait-x:0%; --portrait-y:0%; }
-.portrait--luwen-wan { --portrait-scale:1; --portrait-x:0%; --portrait-y:0%; }
+.portrait--lawrence-fung { --portrait-scale:1.323; --portrait-x:-10.58%; --portrait-y:0.0%; }
+.portrait--sara-kolb { --portrait-scale:1.0; --portrait-x:-0.0%; --portrait-y:0.0%; }
+.portrait--yu-sun { --portrait-scale:1.0; --portrait-x:0.0%; --portrait-y:-0.0%; }
+.portrait--casey-ma { --portrait-scale:1.039; --portrait-x:-0.02%; --portrait-y:-0.74%; }
+.portrait--tingting-chen { --portrait-scale:1.251; --portrait-x:-16.01%; --portrait-y:-3.78%; }
+.portrait--jun-hu { --portrait-scale:1.438; --portrait-x:-20.34%; --portrait-y:-18.3%; }
+.portrait--jin-xu { --portrait-scale:1.0; --portrait-x:0.0%; --portrait-y:-0.0%; }
+.portrait--glen-qin { --portrait-scale:1.0; --portrait-x:-0.0%; --portrait-y:-0.0%; }
+.portrait--kaushal-patel { --portrait-scale:1.0; --portrait-x:-0.0%; --portrait-y:0.0%; }
+.portrait--xiaoliang-lu { --portrait-scale:1.046; --portrait-x:-1.13%; --portrait-y:0.0%; }
+.portrait--michael-chang { --portrait-scale:1.0; --portrait-x:-0.0%; --portrait-y:0.0%; }
+.portrait--gisela { --portrait-scale:1.09; --portrait-x:-4.91%; --portrait-y:-6.69%; }
+.portrait--lucy-liu { --portrait-scale:1.019; --portrait-x:-0.46%; --portrait-y:-1.02%; }
+.portrait--sophia-shao { --portrait-scale:1.193; --portrait-x:-9.45%; --portrait-y:-9.8%; }
+.portrait--jannie-tang { --portrait-scale:1.0; --portrait-x:0.0%; --portrait-y:-0.0%; }
+.portrait--william-lu { --portrait-scale:1.518; --portrait-x:-28.06%; --portrait-y:-9.54%; }
+.portrait--steven-yang { --portrait-scale:1.0; --portrait-x:-0.0%; --portrait-y:0.0%; }
+.portrait--irene-zhang { --portrait-scale:1.0; --portrait-x:-0.0%; --portrait-y:0.0%; }
+.portrait--luwen-wan { --portrait-scale:1.0; --portrait-x:-0.0%; --portrait-y:0.0%; }
