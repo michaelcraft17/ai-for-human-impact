@@ -102,10 +102,6 @@
 
   .speaker-card { padding:28px 20px 26px; }
   .speaker-photo { width:112px; height:112px; margin-bottom:16px; }
-  .judges-grid .speaker-card { padding:22px 18px 18px; }
-  .judges-grid .speaker-photo { width:84px; height:84px; }
-  .judges-grid .speaker-card .speaker-title { font-size:.8rem; }
-  .judges-grid .speaker-card p.speaker-bio { font-size:.86rem; }
 
   /* Judge bios: four lines, then "Read full bio" (only once mobile.js has run). */
   html.m-js #judges .speaker-bio:not(.m-open) { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:4; overflow:hidden; }
@@ -140,7 +136,7 @@
   summary { padding:18px 2px; font-size:1.08rem; }
   details p { padding:0 2px 18px; font-size:.98rem; }
 
-  .team-grid .speaker-card { padding:28px 20px 24px; }
+  :is(.team-grid,.judges-grid) .speaker-card { padding:28px 20px 24px; }
 
   .hub-grid { gap:12px; }
   .hub-card { padding:20px 20px; }
