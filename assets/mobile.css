@@ -1,8 +1,14 @@
-/* Phone layout (640px and narrower). Desktop and tablet are untouched:
-   the first four rules only hide phone-only pieces at larger sizes. */
+/* Phone layout (640px and narrower). Desktop and tablet are untouched,
+   apart from the first rules, which hide phone-only pieces at larger sizes
+   and cut long judge bios with a "Read full bio" button (mobile.js). */
 .nav-menu a.nav-phone { display:none !important; }
 .scroll-guide .scroll-guide-cta { display:none; }
-.m-dots, .m-more { display:none; }
+.m-dots { display:none; }
+
+/* Judge bios: eight lines on desktop and tablet (four on phones, below), then "Read full bio". */
+html.m-js #judges .speaker-bio:not(.m-open) { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:8; overflow:hidden; }
+.m-more { display:inline-flex; align-items:center; min-height:44px; margin-top:4px; padding:0 4px; border:0; background:none; color:var(--cardinal); font:600 .86rem var(--sans); text-decoration:underline; text-underline-offset:3px; cursor:pointer; align-self:flex-start; }
+.m-more[hidden] { display:none; }
 
 @media (max-width:640px) {
   /* ---------- Header: brand, Register, menu ---------- */
@@ -104,9 +110,7 @@
   .speaker-photo { width:112px; height:112px; margin-bottom:16px; }
 
   /* Judge bios: four lines, then "Read full bio" (only once mobile.js has run). */
-  html.m-js #judges .speaker-bio:not(.m-open) { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:4; overflow:hidden; }
-  .m-more { display:inline-flex; align-items:center; min-height:44px; margin-top:4px; padding:0 4px; border:0; background:none; color:var(--cardinal); font:600 .86rem var(--sans); text-decoration:underline; text-underline-offset:3px; cursor:pointer; align-self:flex-start; }
-  .m-more[hidden] { display:none; }
+  html.m-js #judges .speaker-bio:not(.m-open) { -webkit-line-clamp:4; }
 
   /* ---------- Why join: 2 × 2 ---------- */
   .why-grid { grid-template-columns:1fr 1fr; gap:12px; }

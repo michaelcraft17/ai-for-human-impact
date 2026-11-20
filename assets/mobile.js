@@ -1,5 +1,5 @@
-/* Phone-only helpers (see assets/mobile.css): dots under the swipe rows and
-   "Read full bio" buttons for judges. Without this script every card and bio is still fully readable. */
+/* Phone helpers (see assets/mobile.css): dots under the swipe rows, plus
+   "Read full bio" buttons for long judge bios on every screen size. Without this script every card and bio is still fully readable. */
 (function () {
   'use strict';
   var root = document.documentElement;
@@ -83,11 +83,11 @@
     return { bio:bio, btn:btn };
   });
 
-  // Hide a button when its bio already fits in four lines.
+  // Hide a button when its bio already fits (four lines on phones, eight elsewhere).
   function checkBios() {
     toggles.forEach(function (t) {
       if (t.bio.classList.contains('m-open')) { t.btn.hidden = false; return; }
-      t.btn.hidden = phone.matches && t.bio.scrollHeight <= t.bio.clientHeight + 1;
+      t.btn.hidden = t.bio.scrollHeight <= t.bio.clientHeight + 1;
     });
   }
 
